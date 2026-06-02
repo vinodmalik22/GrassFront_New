@@ -8,7 +8,8 @@ export default function About() {
       <div className="about-grid">
         {/* Image placeholder */}
         <div className="about-img-placeholder">
-          <div className="about-img-caption">Team · Gurugram Office · 2025</div>
+          <img src="public\assets\about.jpg" alt="Team · Gurugram Office · 2025" srcset="" />
+          {/* <div className="about-img-caption">Team · Gurugram Office · 2025</div> */}
         </div>
 
         {/* Text */}

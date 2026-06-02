@@ -49,6 +49,20 @@
 }
 
 .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+.footer-contact-item {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+}
+.footer-contact-type {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: var(--manatee);
+}
 .footer-col a {
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;

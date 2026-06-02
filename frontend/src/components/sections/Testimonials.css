@@ -31,7 +31,7 @@
   background: var(--white);
   border: 1px solid var(--fog);
   border-radius: 2px;
-  padding: 35.8px 31.8px;
+  padding: 20px 18px;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -46,8 +46,8 @@
   font-family: 'DM Sans', sans-serif;
   font-style: italic;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 29px;
+  font-size: 13px;
+  line-height: 22px;
   color: var(--charade);
   flex: 1;
   padding-bottom: 28.8px;

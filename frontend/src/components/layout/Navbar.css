@@ -75,45 +75,70 @@
 .nav-burger span:nth-child(2) { width: 16px; }
 .nav-burger span:nth-child(3) { width: 22px; }
 
+/* ── Mobile Drawer ──────────────────────────────────────────────────────────
+   Fixed dark panel that is always visible regardless of page background.
+   Uses opaque dark fill + subtle border + shadow for depth and clarity.
+─────────────────────────────────────────────────────────────────────────── */
 .nav-drawer {
   position: fixed;
-  top: 69px; left: 0; right: 0; bottom: 0;
-  background: #000;
+  top: 69px; left: 0; right: 0;
+  /* Only takes up what it needs rather than full screen height */
+  background: #0d0d12;
   z-index: 110;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 40px 24px;
-  gap: 22px;
-  border-top: 0.8px solid rgba(255,255,255,0.1);
+  padding: 24px 20px 28px;
+  gap: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.35);
+}
 
+.nav-drawer ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
-.nav-drawer ul { display: flex; flex-direction: column; gap: 24px; }
-.nav-drawer a {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 22px;
-  font-weight: 200;
-  color: var(--white);
-  letter-spacing: -0.4px;
+
+.nav-drawer li a {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.1px;
+  padding: 10px 4px;
+  border-bottom: 0.8px solid rgba(255, 255, 255, 0.06);
+  transition: color 0.18s;
 }
+.nav-drawer li:last-child a {
+  border-bottom: none;
+}
+.nav-drawer li a:hover {
+  color: #fff;
+}
+
 .nav-cta-mobile {
   display: inline-block;
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 200;
-  font-size: 14px;
-  letter-spacing: 0.56px;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.72px;
   text-transform: uppercase;
   color: var(--white);
   background: var(--blue);
   border-radius: 2px;
-  padding: 14px 32px;
+  padding: 11px 24px;
   text-align: center;
   width: 100%;
+  margin-top: 12px;
+  box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   .navbar { padding: 0 16px; }
   .nav-links, .nav-cta { display: none; }
-  .desktop-only { display: none;  }
+  .desktop-only { display: none; }
   .nav-burger { display: flex; }
 }

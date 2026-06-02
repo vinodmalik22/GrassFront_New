@@ -1,9 +1,9 @@
 import './Media.css';
 
 const ARTICLES = [
-  { cat: 'Infrastructure', thumb: 'Engineering', title: 'Designing for scale: how we architect multi-tenant SaaS platforms' },
-  { cat: 'Automation', thumb: 'Product', title: 'From 40 hours to 4: automating procurement workflows for hospitality' },
-  { cat: 'Announcement', thumb: 'Company', title: 'GrassFRONT expands technical consulting services for enterprise clients' },
+  { cat: 'Infrastructure', image: '/assets/media1.jpg', title: 'Designing for scale: how we architect multi-tenant SaaS platforms' },
+  { cat: 'Automation', image: '/assets/media2.png', title: 'From 40 hours to 4: automating procurement workflows for hospitality' },
+  { cat: 'Announcement', image: '/assets/media3.png', title: 'GrassFRONT expands technical consulting services for enterprise clients' },
 ];
 
 export default function Media() {
@@ -25,7 +25,7 @@ export default function Media() {
           {ARTICLES.map(a => (
             <div key={a.title} className="media-card">
               <div className="media-thumb">
-                <span className="media-thumb-label">{a.thumb}</span>
+                <img src={a.image} alt={a.title} />
               </div>
               <div className="media-content">
                 <div className="media-cat">{a.cat}</div>

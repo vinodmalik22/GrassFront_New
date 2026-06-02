@@ -47,15 +47,7 @@ export default function Hero() {
 
       <div className="hero-right">
         <div className="hero-visual">
-          <div className="hero-graphic">
-            <div className="hero-ring hero-ring-1" />
-            <div className="hero-ring hero-ring-2" />
-            <div className="hero-ring hero-ring-3" />
-            <div className="hero-center-dot">
-              <div className="hero-center-inner" />
-            </div>
-          </div>
-          <div className="hero-glow" />
+         <img src="public\assets\hero.jpg" alt="Hero Visual" className="hero-image" />
         </div>
       </div>
     </section>

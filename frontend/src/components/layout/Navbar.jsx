@@ -3,7 +3,7 @@ import './Navbar.css';
 
 const NAV_LINKS = [
   { label: 'Home', href: '#' },
-  { label: 'How We Works', href: '#services' },
+  { label: 'How We Work', href: '#services' },
   { label: 'Capabilities', href: '#capabilities' },
   { label: 'Projects', href: '#projects' },
   { label: 'Media', href: '#media' },
@@ -43,7 +43,7 @@ export default function Navbar() {
               <li key={l.label}><a href={l.href} onClick={() => setOpen(false)}>{l.label}</a></li>
             ))}
           </ul>
-          <a href="#contact" className="nav-cta-mobile" onClick={() => setOpen(false)}>Start a Project</a>
+          <a href="#contact" className="nav-cta-mobile" onClick={() => setOpen(false)}>Get Connected</a>
         </div>
       )}
     </nav>

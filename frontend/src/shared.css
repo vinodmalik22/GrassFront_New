@@ -37,3 +37,18 @@
 @media (max-width: 768px) {
   .section-inner { padding: 0; }
 }
+
+/* Standardize main section heading sizes across all sections */
+section h2 {
+  font-size: 2.25rem; /* ~36px */
+  line-height: 1.1;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  color: var(--text, #0b0b0b);
+}
+
+@media (max-width: 768px) {
+  section h2 {
+    font-size: 1.6rem; /* slightly smaller on mobile */
+  }
+}
