@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Colors */
+  --blue: #1F00FF;
+  --vulcan: #0A0A14;
+  --mirage: #1A1A2E;
+  --haiti: #12103A;
+  --charade: #2D2D3F;
+  --storm-gray: #6B6B88;
+  --manatee: #8888AA;
+  --melrose: #C0B8FF;
+  --white-lilac: #F7F7FC;
+  --selago: #F0EFFE;
+  --fog: #DDD9FF;
+  --white: #FFFFFF;
+
+  /* Blue opacity variants */
+  --blue-06: rgba(31,0,255,0.06);
+  --blue-10: rgba(31,0,255,0.10);
+  --blue-12: rgba(31,0,255,0.12);
+  --blue-15: rgba(31,0,255,0.15);
+  --blue-20: rgba(31,0,255,0.20);
+  --blue-24: rgba(31,0,255,0.24);
+  --blue-30: rgba(31,0,255,0.30);
+  --blue-30p: rgba(192,184,255,0.25);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; width: 100%; overflow-x: hidden; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--vulcan);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }

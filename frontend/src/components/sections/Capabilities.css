@@ -1,0 +1,105 @@
+.capabilities {
+  background: var(--white-lilac);
+  border-top: 0.8px solid var(--blue-12);
+  padding: 80px 80px;
+}
+
+.section-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 19.2px;
+}
+
+.cap-frame {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.capabilities h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 64px;
+  letter-spacing: -1.008px;
+  color: var(--vulcan);
+}
+
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--blue-12);
+  background: var(--blue-12);
+  gap: 1px;
+}
+
+.cap-card {
+  background: var(--white);
+  border: 1px solid var(--fog);
+  padding: 43.8px 35.8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cap-icon {
+  width: 44px; height: 44px;
+  border: 1px solid var(--fog);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cap-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 22px;
+  letter-spacing: -0.4px;
+  color: var(--vulcan);
+  padding: 11.4px 0 0.6px;
+}
+
+.cap-card p {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 27px;
+  color: var(--charade);
+}
+
+.cap-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-top: 8px;
+}
+
+.cap-tag {
+  border: 1px solid var(--fog);
+  border-radius: 2px;
+  padding: 3.8px 9.8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--storm-gray);
+}
+
+@media (max-width: 1024px) {
+  .capabilities { padding: 80px 40px; }
+  .section-inner { padding: 0; }
+  .cap-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .capabilities { padding: 60px 24px; }
+  .capabilities h2 { font-size: 36px; line-height: 46px; }
+  .cap-grid { grid-template-columns: 1fr; }
+}

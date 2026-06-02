@@ -1,0 +1,94 @@
+.media {
+  background: var(--white-lilac);
+  padding: 80px 80px;
+}
+
+.media .section-inner {
+  gap: 11.3px;
+}
+
+.media h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 54px;
+  line-height: 60px;
+  letter-spacing: -1.008px;
+  color: var(--vulcan);
+  padding-top: 8.5px;
+}
+
+.media-intro {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 29px;
+  color: var(--charade);
+  max-width: 560px;
+}
+
+.media-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin-top: 44.7px;
+}
+
+.media-card {
+  background: var(--white);
+  border: 1px solid var(--fog);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.media-thumb {
+  height: 180px;
+  background: var(--selago);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.media-thumb-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--storm-gray);
+}
+
+.media-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.media-cat {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.media-card h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 23px;
+  letter-spacing: -0.36px;
+  color: var(--vulcan);
+}
+
+@media (max-width: 1024px) {
+  .media { padding: 80px 40px; }
+}
+
+@media (max-width: 768px) {
+  .media { padding: 60px 24px; }
+  .media h2 { font-size: 36px; line-height: 46px; }
+  .media-grid { grid-template-columns: 1fr; gap: 16px; }
+}
