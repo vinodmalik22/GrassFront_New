@@ -47,7 +47,7 @@ export default function Hero() {
 
       <div className="hero-right">
         <div className="hero-visual">
-         <img src="public\assets\hero.jpg" alt="Hero Visual" className="hero-image" />
+         <img src="/assets/hero.jpg" alt="Hero Visual" className="hero-image" />
         </div>
       </div>
     </section>
