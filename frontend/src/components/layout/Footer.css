@@ -1,6 +1,6 @@
 .footer {
   border-top: 0.8px solid var(--blue-12);
-  padding: 40px 30px 40px;
+  padding: 40px 0;
   background: var(--vulcan);
 }
 
@@ -99,6 +99,10 @@
   transition: color 0.2s;
 }
 .footer-legal a:hover { color: var(--white); }
+
+@media (max-width: 1024px) {
+  .footer-inner { padding: 0 32px; }
+}
 
 @media (max-width: 768px) {
   .footer { padding: 60px 24px 32px; }

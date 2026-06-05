@@ -1,11 +1,12 @@
 .about {
   background: var(--white-lilac);
-  padding: 80px 128px;
+  padding: 80px 0;
 }
 
 .about-grid {
-  max-width: 1184px;
+  max-width: 1280px;
   margin: 0 auto;
+  padding: 0 48px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
@@ -118,12 +119,13 @@
 }
 
 @media (max-width: 1024px) {
-  .about { padding: 80px 48px; }
+  .about { padding: 80px 0; }
+  .about-grid { padding: 0 32px; }
 }
 
 @media (max-width: 768px) {
   .about { padding: 60px 24px; }
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
-  .about-img-placeholder { height: 240px; }
+  .about-grid { padding: 0; grid-template-columns: 1fr; gap: 40px; }
+  .about-img-placeholder { display: none; }
   .about-content h2 { font-size: 32px; line-height: 42px; }
 }

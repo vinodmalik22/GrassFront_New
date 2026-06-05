@@ -1,12 +1,12 @@
 .projects {
   border-top: 0.8px solid var(--blue-12);
-  padding: 70px 80px;
+  padding: 70px 0;
 }
 
 .projects-section-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 48px;
   display: flex;
   flex-direction: column;
   gap: 48px;
@@ -70,9 +70,10 @@
 .project-image {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   display: block;
+  padding: 32px;
 }
 
 /* ── Body: tighter padding and smaller type ──────────────────────────────── */
@@ -148,16 +149,16 @@
 
 /* ── Tablet ──────────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .projects { padding: 60px 40px; }
-  .projects-section-inner { padding: 0; }
+  .projects { padding: 60px 0; }
+  .projects-section-inner { padding: 0 32px; }
   .project-visual { width: 280px; }
   .projects-head h2 { font-size: 34px; line-height: 44px; }
 }
 
 /* ── Mobile ──────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .projects { padding: 48px 20px; }
-  .projects-section-inner { gap: 32px; }
+  .projects { padding: 48px 24px; }
+  .projects-section-inner { padding: 0; gap: 32px; }
 
   /* Stack header vertically; heading wraps cleanly */
   .projects-head {
@@ -187,6 +188,9 @@
     width: 100%;
     height: 160px;
     min-height: unset;
+  }
+  .project-image {
+    padding: 16px;
   }
   .project-body {
     padding: 18px 16px 22px;

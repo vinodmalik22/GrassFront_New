@@ -1,7 +1,7 @@
 .contact {
   background: linear-gradient(106.41deg, #1F00FF 0%, #0D00B8 100%);
   border-top: 0.8px solid var(--blue-12);
-  padding: 100px 80px;
+  padding: 100px 0;
 }
 
 .contact-inner {
@@ -73,6 +73,11 @@
   transition: border-color 0.2s, background 0.2s;
 }
 .cta-btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
+
+@media (max-width: 1024px) {
+  .contact { padding: 100px 0; }
+  .contact-inner { padding: 0 32px; }
+}
 
 @media (max-width: 768px) {
   .contact { padding: 60px 24px; }

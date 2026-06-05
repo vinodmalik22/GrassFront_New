@@ -81,8 +81,12 @@
   color: var(--storm-gray);
 }
 
-@media (max-width: 1200px) {
-  .process-grid { width: calc(100% - 80px); margin: 0 40px; }
+@media (max-width: 1280px) {
+  .process-grid { width: calc(100% - 96px); margin: 0 48px; }
+}
+
+@media (max-width: 1024px) {
+  .process-grid { width: calc(100% - 64px); margin: 0 32px; }
 }
 
 @media (max-width: 768px) {

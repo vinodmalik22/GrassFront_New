@@ -1,7 +1,7 @@
 .capabilities {
   background: var(--white-lilac);
   border-top: 0.8px solid var(--blue-12);
-  padding: 80px 80px;
+  padding: 80px 0;
 }
 
 .section-inner {
@@ -93,8 +93,7 @@
 }
 
 @media (max-width: 1024px) {
-  .capabilities { padding: 80px 40px; }
-  .section-inner { padding: 0; }
+  .capabilities { padding: 80px 0; }
   .cap-grid { grid-template-columns: repeat(2, 1fr); }
 }
 

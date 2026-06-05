@@ -1,7 +1,7 @@
 .testimonials {
   background: var(--white-lilac);
   border-top: 0.8px solid var(--blue-12);
-  padding: 80px 80px;
+  padding: 80px 0;
 }
 
 .testimonials .section-inner {
@@ -77,7 +77,7 @@
 }
 
 @media (max-width: 1024px) {
-  .testimonials { padding: 80px 40px; }
+  .testimonials { padding: 80px 0; }
 }
 
 @media (max-width: 768px) {

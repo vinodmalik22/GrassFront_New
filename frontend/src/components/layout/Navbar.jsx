@@ -15,25 +15,27 @@ export default function Navbar() {
 
   return (
     <nav className="navbar">
-      <a href="#" className="nav-logo">
-        grass<span>FRONT</span>
-      </a>
+      <div className="navbar-inner">
+        <a href="#" className="nav-logo">
+          grass<span>FRONT</span>
+        </a>
 
-      {/* Desktop links */}
-      <ul className="nav-links">
-        {NAV_LINKS.map(l => (
-          <li key={l.label}><a href={l.href}>{l.label}</a></li>
-        ))}
-      </ul>
+        {/* Desktop links */}
+        <ul className="nav-links">
+          {NAV_LINKS.map(l => (
+            <li key={l.label}><a href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
 
-      <a href="#contact" className="nav-cta desktop-only" style={{ backgroundColor: 'var(--blue)', color: 'var(--white)' }}>
-        Get Connected
-      </a>
+        <a href="#contact" className="nav-cta desktop-only" style={{ backgroundColor: 'var(--blue)', color: 'var(--white)' }}>
+          Get Connected
+        </a>
 
-      {/* Mobile hamburger */}
-      <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
-        <span /><span /><span />
-      </button>
+        {/* Mobile hamburger */}
+        <button className="nav-burger" onClick={() => setOpen(!open)} aria-label="Menu">
+          <span /><span /><span />
+        </button>
+      </div>
 
       {/* Mobile drawer */}
       {open && (

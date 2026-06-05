@@ -8,6 +8,7 @@ const PROJECTS = [
     title: 'Horeca Mall — B2B Procurement Platform',
     desc: 'Full-stack procurement and inventory management system built for the hospitality sector. Multi-vendor marketplace with real-time stock tracking, automated reorder workflows, and an integrated payment gateway for bulk purchasing across 500+ SKUs.',
     outcome: 'Reduced procurement time by 68% · Onboarded 120+ vendors in first quarter',
+    bg: '#ffffff',
   },
   {
     image: '/assets/bizzstudio.jpeg',
@@ -15,6 +16,7 @@ const PROJECTS = [
     title: 'Bizz Studio — Operations Dashboard',
     desc: 'Centralized operations intelligence platform with real-time KPI tracking, automated reporting, and multi-branch management tools for a growing creative services business.',
     outcome: 'Consolidated 6 spreadsheet tools into a single platform',
+    bg: '#000000',
   },
   {
     image: '/assets/platter_pos.jpg',
@@ -22,6 +24,7 @@ const PROJECTS = [
     title: 'Platter — Restaurant POS & Ordering',
     desc: 'End-to-end point-of-sale and digital ordering system with kitchen display integration, table management, and analytics reporting.',
     outcome: 'Deployed across 14 locations with 99.9% uptime',
+    bg: '#ffffff',
   },
 ];
 
@@ -43,7 +46,7 @@ export default function Projects() {
         <div className="projects-list">
           {PROJECTS.map(p => (
             <div key={p.title} className="project-card">
-              <div className="project-visual">
+              <div className="project-visual" style={{ backgroundColor: p.bg || 'var(--haiti)' }}>
                 {p.url ? (
                   <a href={p.url} target="_blank" rel="noreferrer">
                     <img src={p.image} alt={p.title} className="project-image" />

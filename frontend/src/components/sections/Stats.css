@@ -2,7 +2,7 @@
   border-width: 0.8px 0;
   border-style: solid;
   border-color: var(--blue-12);
-  padding: 80px 80px;
+  padding: 80px 0;
 }
 
 .stats-frame {
@@ -22,9 +22,7 @@
   color: var(--blue);
 }
 
-/* ── section-inner: centered + full-width ───────────────────────────────── */
 .stats-section .section-inner {
-  padding: 0 48px;
   gap: 48px;
   align-items: center;
   display: flex;
@@ -83,13 +81,11 @@
 
 /* ── Tablet ──────────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .stats-section { padding: 80px 40px; }
-  .stats-section .section-inner { padding: 0; }
+  .stats-section { padding: 80px 0; }
 }
 
-/* ── Mobile ──────────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .stats-section { padding: 56px 20px; }
+  .stats-section { padding: 56px 24px; }
 
   /* Center all frame content */
   .stats-frame {
@@ -99,7 +95,6 @@
 
   /* Remove side padding so grid fills the container */
   .stats-section .section-inner {
-    padding: 0;
     gap: 32px;
     align-items: center;
     width: 100%;

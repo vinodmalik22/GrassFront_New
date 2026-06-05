@@ -3,14 +3,20 @@
   min-height: 780px;
   display: flex;
   align-items: flex-start;
-  padding-top: 25px;
+  padding: 25px 0 0 0;
   overflow: hidden;
+}
+
+.hero-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 /* ---- LEFT ---- */
 .hero-left {
   position: absolute;
-  left: 96px;
+  left: 48px;
   right: 600px;
   top: 64px;
   display: flex;
