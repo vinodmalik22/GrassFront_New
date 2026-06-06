@@ -46,11 +46,7 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="hero-right">
-          <div className="hero-visual">
-           <img src="/assets/hero.jpg" alt="Hero Visual" className="hero-image" />
-          </div>
-        </div>
+
       </div>
     </section>
   );
