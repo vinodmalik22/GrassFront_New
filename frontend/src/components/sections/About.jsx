@@ -18,7 +18,7 @@ export default function About() {
             <span className="section-tag-label">About GrassFRONT</span>
           </div>
 
-          <h2>We Help Businesses <span className="accent">Digitize, Automate & Scale.</span></h2>
+          <h2>We Help Businesses <br /><span className="accent">Digitize, Automate & Scale.</span></h2>
 
           <p>At GrassFRONT, we build custom software, ERP systems, AI-powered workflows, and business automation solutions that help companies reduce operational costs and make better decisions using data.</p>
 
