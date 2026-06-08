@@ -17,8 +17,10 @@
 
 .contact h2 {
   font-family: 'Space Grotesk', sans-serif;
+  text-align: center;
+  max-width: 900px;
   font-weight: 700;
-  font-size: 72px;
+  font-size: 55px;
   line-height: 79px;
   letter-spacing: -1.44px;
   color: var(--white);
@@ -26,6 +28,8 @@
 
 .contact p {
   font-family: 'DM Sans', sans-serif;
+  text-align: center;
+  max-width: 800px;
   font-weight: 300;
   font-size: 18px;
   line-height: 29px;
@@ -55,14 +59,17 @@
   color: var(--blue);
   transition: background 0.2s;
 }
-.cta-btn-primary:hover { background: var(--fog); }
+
+.cta-btn-primary:hover {
+  background: var(--fog);
+}
 
 .cta-btn-outline {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 13.8px 31.8px;
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 2px;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -72,16 +79,38 @@
   color: var(--white);
   transition: border-color 0.2s, background 0.2s;
 }
-.cta-btn-outline:hover { border-color: rgba(255,255,255,0.7); background: rgba(255,255,255,0.05); }
+
+.cta-btn-outline:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.05);
+}
 
 @media (max-width: 1024px) {
-  .contact { padding: 100px 0; }
-  .contact-inner { padding: 0 32px; }
+  .contact {
+    padding: 100px 0;
+  }
+
+  .contact-inner {
+    padding: 0 32px;
+  }
 }
 
 @media (max-width: 768px) {
-  .contact { padding: 60px 24px; }
-  .contact-inner { padding: 0; }
-  .contact h2 { font-size: 40px; line-height: 48px; }
-  .cta-btn-primary, .cta-btn-outline { width: 100%; }
+  .contact {
+    padding: 60px 24px;
+  }
+
+  .contact-inner {
+    padding: 0;
+  }
+
+  .contact h2 {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .cta-btn-primary,
+  .cta-btn-outline {
+    width: 100%;
+  }
 }

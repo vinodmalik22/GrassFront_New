@@ -46,7 +46,7 @@
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
   border: 1px solid var(--blue-12);
-  background: rgba(31,0,255,0.24);
+  background: rgba(31, 0, 255, 0.24);
   gap: 1px;
 }
 
@@ -62,11 +62,11 @@
 
 .stat-big-num {
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 44px;
+  font-weight: 500;
+  font-size: 40px;
   line-height: 64px;
   letter-spacing: -2.56px;
-  color: var(--blue);
+  color: var(--white-lilac);
   text-align: center;
 }
 
@@ -81,11 +81,15 @@
 
 /* ── Tablet ──────────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .stats-section { padding: 80px 0; }
+  .stats-section {
+    padding: 80px 0;
+  }
 }
 
 @media (max-width: 768px) {
-  .stats-section { padding: 56px 24px; }
+  .stats-section {
+    padding: 56px 24px;
+  }
 
   /* Center all frame content */
   .stats-frame {

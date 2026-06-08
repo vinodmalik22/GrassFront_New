@@ -29,21 +29,56 @@
 .media-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0;
+  gap: 16px;
   margin-top: 44.7px;
 }
 
+/* ── Card base ── */
 .media-card {
   background: var(--white);
   border: 1px solid var(--fog);
-  border-radius: 2px;
+  border-radius: 10px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  /* Scroll-reveal: starts hidden, becomes visible via JS .visible class */
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
 }
 
+/* Staggered delays for each card */
+.media-card:nth-child(1) { transition-delay: 0s; }
+.media-card:nth-child(2) { transition-delay: 0.1s; }
+.media-card:nth-child(3) { transition-delay: 0.2s; }
+
+/* Triggered by IntersectionObserver adding .visible */
+.media-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hover lift ── */
+.media-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 48px rgba(31, 0, 255, 0.1),
+    0 4px 16px rgba(31, 0, 255, 0.05);
+  border-color: rgba(31, 0, 255, 0.2);
+}
+
+/* When already revealed + hovered, override the initial state */
+.media-card.visible:hover {
+  transform: translateY(-6px);
+}
+
+/* ── Thumbnail ── */
 .media-thumb {
-  height: 180px;
+  height: 200px;
   background: var(--selago);
   display: flex;
   align-items: center;
@@ -52,13 +87,37 @@
   overflow: hidden;
 }
 
+/* Image zoom on card hover */
 .media-thumb img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+.media-card:hover .media-thumb img {
+  transform: scale(1.07);
+}
+
+/* Overlay shimmer on hover */
+.media-thumb::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg,
+    rgba(31, 0, 255, 0.08) 0%,
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.media-card:hover .media-thumb::after {
+  opacity: 1;
+}
+
+/* ── Content area ── */
 .media-content {
   padding: 24px;
   display: flex;
@@ -81,14 +140,57 @@
   line-height: 23px;
   letter-spacing: -0.36px;
   color: var(--vulcan);
+  transition: color 0.25s ease;
 }
 
+.media-card:hover h4 {
+  color: var(--blue);
+}
+
+/* Read arrow indicator */
+.media-read {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--storm-gray);
+  margin-top: 4px;
+  transition: color 0.25s ease, gap 0.25s ease;
+}
+
+.media-read-arrow {
+  display: inline-block;
+  font-size: 14px;
+  transform: rotate(-45deg);
+  transition: transform 0.25s ease;
+}
+
+.media-card:hover .media-read {
+  color: var(--blue);
+  gap: 10px;
+}
+
+.media-card:hover .media-read-arrow {
+  transform: rotate(-45deg) translate(2px, -2px);
+}
+
+/* ── Responsive ── */
 @media (max-width: 1024px) {
   .media { padding: 80px 0; }
+  .media .section-inner { padding: 0 32px; }
 }
 
 @media (max-width: 768px) {
   .media { padding: 60px 24px; }
+  .media .section-inner { padding: 0; }
   .media h2 { font-size: 36px; line-height: 46px; }
-  .media-grid { grid-template-columns: 1fr; gap: 16px; }
+  .media-grid { grid-template-columns: 1fr; gap: 14px; }
+  .media-thumb { height: 180px; }
+  /* disable stagger delay on mobile for snappiness */
+  .media-card:nth-child(1),
+  .media-card:nth-child(2),
+  .media-card:nth-child(3) { transition-delay: 0s; }
 }

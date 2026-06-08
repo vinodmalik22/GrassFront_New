@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import './Stats.css';
 
 const STATS = [
-  { value: 100, suffix: '+', label: 'Projects Delivered' },
-  { value: 20, suffix: '+', label: 'Business Clients' },
-  { value: 98, suffix: '%', label: 'On-Time Delivery' },
-  { value: 4.9, suffix: '', label: 'Client Satisfaction' },
+  { value: '10', suffix: 'Cr+', label: 'Business Processes Digitized' },
+  { value: '1000', suffix: '+', label: 'Users Supported' },
+  { value: '5000', suffix: '+', label: 'Hours Saved Through Automation ' },
+  { value: '98', suffix: '%', label: 'Client Retention ' },
 ];
 
 function Counter({ end, suffix = '', isVisible }) {

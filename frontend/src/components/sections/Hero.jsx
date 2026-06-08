@@ -37,18 +37,19 @@ export default function Hero() {
           </div>
 
           <h1 className="hero-heading">
-            Digital systems<br />engineered for<br />
-            <span className="hero-heading-accent">trust.</span>
+            Build Software, ERP &<br />AI Automation Solutions<br />
+            That Help Businesses<br />
+            <span className="hero-heading-accent">Grow Faster.</span>
           </h1>
 
           <div className="hero-bottom">
             <p className="hero-sub">
-              We design, build, and maintain scalable software platforms, operational systems, and modern digital infrastructure for startups, growing businesses, and enterprise teams.
+              GrassFRONT helps businesses automate operations, improve efficiency, reduce manual work, and scale with custom software, ERP systems, AI solutions, and business automation.
             </p>
 
             <div className="hero-btns">
-              <a href="#projects" className="btn-primary">View Our Work</a>
-              <a href="#contact" className="btn-outline">Book a Discovery Call</a>
+              <a href="#contact" className="btn-primary">Get Free Consultation</a>
+              <a href="#contact" className="btn-outline">Book Discovery Call</a>
             </div>
 
             <div className="hero-stats">
