@@ -6,7 +6,7 @@ const PROJECTS = [
     url: 'https://www.horecameet.com',
     tech: ['Next.js', 'Node.js', 'PostgreSQL', 'AWS'],
     title: 'Horeca Mall — B2B Procurement Platform',
-    desc: 'Full-stack procurement and inventory management system built for the hospitality sector. Multi-vendor marketplace with real-time stock tracking, automated reorder workflows, and an integrated payment gateway for bulk purchasing across 500+ SKUs.',
+    desc: 'Helped a hospitality business reduce procurement time by 68%, automate vendor management, and manage inventory across multiple locations through a centralized procurement platform. Multi-vendor marketplace with real-time stock tracking, automated reorder workflows, and an integrated payment gateway for bulk purchasing across 500+ SKUs.',
     outcome: 'Reduced procurement time by 68% · Onboarded 120+ vendors in first quarter',
     bg: '#ffffff',
   },
@@ -45,7 +45,7 @@ export default function Projects() {
 
         <div className="projects-list">
           {PROJECTS.map(p => (
-            <div key={p.title} className="project-card">
+            <div key={p.title} className="project-card reveal">
               <div className="project-visual" style={{ backgroundColor: p.bg || 'var(--haiti)' }}>
                 {p.url ? (
                   <a href={p.url} target="_blank" rel="noreferrer">

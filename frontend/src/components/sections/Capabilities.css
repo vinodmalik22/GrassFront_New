@@ -1,3 +1,5 @@
+/* ─── Capabilities Section ─────────────────────────────────────── */
+
 .capabilities {
   background: var(--white-lilac);
   border-top: 0.8px solid var(--blue-12);
@@ -11,6 +13,27 @@
   display: flex;
   flex-direction: column;
   gap: 19.2px;
+}
+
+.section-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.section-tag-line {
+  width: 26px;
+  height: 1.5px;
+  background: #1F00FF;
+  flex-shrink: 0;
+}
+
+.section-tag-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1F00FF;
 }
 
 .cap-frame {
@@ -28,56 +51,127 @@
   color: var(--vulcan);
 }
 
+/* ─── Grid ───────────────────────────────────────────────────────── */
+
 .cap-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px solid var(--blue-12);
-  background: var(--blue-12);
-  gap: 1px;
+  gap: 16px;
 }
+
+/* ─── Card ───────────────────────────────────────────────────────── */
 
 .cap-card {
   background: var(--white);
   border: 1px solid var(--fog);
-  padding: 43.8px 35.8px;
+  border-radius: 12px;
+  padding: 40px 32px 36px;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  position: relative;
+  overflow: hidden;
+  animation: capCardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--delay, 0s);
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.3s ease;
 }
 
+.cap-card:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 20px 48px rgba(31, 0, 255, 0.08),
+    0 4px 16px rgba(31, 0, 255, 0.04);
+  border-color: rgba(31, 0, 255, 0.25);
+}
+
+.cap-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: linear-gradient(135deg,
+      rgba(31, 0, 255, 0.03) 0%,
+      transparent 55%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cap-card:hover::before {
+  opacity: 1;
+}
+
+/* ─── Illustration ───────────────────────────────────────────────── */
+
+.cap-illus {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  opacity: 0.1;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.cap-card:hover .cap-illus {
+  opacity: 0.2;
+  transform: scale(1.06) rotate(-3deg);
+}
+
+/* ─── Icon ───────────────────────────────────────────────────────── */
+
 .cap-icon {
-  width: 44px; height: 44px;
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--fog);
-  border-radius: 4px;
+  border-radius: 6px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: border-color 0.3s ease, background 0.3s ease;
 }
+
+.cap-card:hover .cap-icon {
+  border-color: rgba(31, 0, 255, 0.3);
+  background: rgba(31, 0, 255, 0.04);
+}
+
+/* ─── Text ───────────────────────────────────────────────────────── */
 
 .cap-card h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 22px;
-  line-height: 22px;
+  font-size: 20px;
+  line-height: 27px;
   letter-spacing: -0.4px;
   color: var(--vulcan);
-  padding: 11.4px 0 0.6px;
+  padding: 8px 0 2px;
+  transition: color 0.3s ease;
+}
+
+.cap-card:hover h3 {
+  color: #1F00FF;
 }
 
 .cap-card p {
   font-family: 'DM Sans', sans-serif;
   font-weight: 300;
-  font-size: 16px;
-  line-height: 27px;
+  font-size: 15px;
+  line-height: 26px;
   color: var(--charade);
 }
+
+/* ─── Tags ───────────────────────────────────────────────────────── */
 
 .cap-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   padding-top: 8px;
+  margin-top: auto;
 }
 
 .cap-tag {
@@ -90,15 +184,214 @@
   letter-spacing: 0.8px;
   text-transform: uppercase;
   color: var(--storm-gray);
+  transition:
+    border-color 0.3s ease,
+    color 0.3s ease,
+    background 0.3s ease;
 }
 
-@media (max-width: 1024px) {
-  .capabilities { padding: 80px 0; }
-  .cap-grid { grid-template-columns: repeat(2, 1fr); }
+.cap-card:hover .cap-tag {
+  border-color: rgba(31, 0, 255, 0.2);
+  color: #1F00FF;
+  background: rgba(31, 0, 255, 0.04);
 }
+
+/* ─── Animation ──────────────────────────────────────────────────── */
+
+@keyframes capCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ─── Responsive: Tablet landscape (≤1180px) ────────────────────────────── */
+
+@media (max-width: 1180px) {
+  .capabilities .section-inner {
+    padding: 0 40px;
+  }
+
+  .capabilities h2 {
+    font-size: 44px;
+    line-height: 54px;
+  }
+
+  .cap-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .cap-card {
+    padding: 32px 26px 30px;
+  }
+
+  .cap-card h3 {
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+
+/* ─── Responsive: Tablet portrait (≤900px) ───────────────────────────────── */
+
+@media (max-width: 900px) {
+  .capabilities {
+    padding: 64px 0;
+  }
+
+  .capabilities .section-inner {
+    padding: 0 32px;
+  }
+
+  .capabilities h2 {
+    font-size: 38px;
+    line-height: 48px;
+    letter-spacing: -0.6px;
+  }
+
+  .cap-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .cap-card {
+    padding: 32px 28px 28px;
+  }
+
+  .cap-card h3 {
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .cap-card p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  /* disable hover lift on touch devices */
+  .cap-card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--fog);
+  }
+
+  .cap-card:hover::before {
+    opacity: 0;
+  }
+
+  .cap-card:hover .cap-illus {
+    opacity: 0.1;
+    transform: none;
+  }
+
+  .cap-card:hover .cap-icon {
+    border-color: var(--fog);
+    background: transparent;
+  }
+
+  .cap-card:hover h3 {
+    color: var(--vulcan);
+  }
+
+  .cap-card:hover .cap-tag {
+    border-color: var(--fog);
+    color: var(--storm-gray);
+    background: transparent;
+  }
+}
+
+/* ─── Responsive: Mobile (≤768px) ─────────────────────────────────────────────── */
+/* This MUST come after shared.css's padding:0 rule to override it properly */
 
 @media (max-width: 768px) {
-  .capabilities { padding: 60px 24px; }
-  .capabilities h2 { font-size: 36px; line-height: 46px; }
-  .cap-grid { grid-template-columns: 1fr; }
+  .capabilities {
+    padding: 48px 0;
+  }
+
+  /* Key fix: shared.css sets .section-inner { padding: 0 } at ≤768px.
+     Scope to .capabilities so only this section gets side padding. */
+  .capabilities .section-inner {
+    padding: 0 20px;
+    gap: 16px;
+  }
+
+  .cap-frame {
+    gap: 24px;
+  }
+
+  .capabilities h2 {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.5px;
+  }
+
+  .cap-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .cap-card {
+    padding: 28px 24px 24px;
+    border-radius: 10px;
+    /* disable entrance stagger on mobile — feels slow */
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .cap-card h3 {
+    font-size: 17px;
+    line-height: 24px;
+    padding: 6px 0 2px;
+  }
+
+  .cap-card p {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .cap-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* shrink watermark illustration on small screens */
+  .cap-illus {
+    width: 64px;
+    height: 64px;
+    top: 16px;
+    right: 16px;
+  }
+
+  .cap-tag {
+    font-size: 9px;
+    padding: 3px 8px;
+  }
+}
+
+/* ─── Responsive: Very small mobile (≤380px) ────────────────────────────────── */
+
+@media (max-width: 380px) {
+  .capabilities .section-inner {
+    padding: 0 16px;
+  }
+
+  .capabilities h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .cap-card {
+    padding: 24px 20px 20px;
+  }
+
+  .cap-card h3 {
+    font-size: 16px;
+    line-height: 22px;
+  }
 }

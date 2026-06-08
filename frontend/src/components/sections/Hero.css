@@ -53,21 +53,21 @@
 .hero-heading {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 70px;
-  line-height: 80px;
-  letter-spacing: -1.584px;
+  font-size: 54px;
+  line-height: 62px;
+  letter-spacing: -1.2px;
   color: var(--white);
-  margin-top: 40px;
+  margin-top: 28px;
 }
 .hero-heading-accent { color: var(--blue); }
-
+ 
 .hero-bottom {
-  margin-top: 58px;
+  margin-top: 36px;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 24px;
 }
-
+ 
 .hero-sub {
   font-family: 'DM Sans', sans-serif;
   font-weight: 300;

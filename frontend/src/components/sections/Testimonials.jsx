@@ -2,7 +2,7 @@ import './Testimonials.css';
 
 const TESTIMONIALS = [
   {
-    quote: '"GrassFRONT didn\'t just build a platform — they understood our operational model and built something we can scale for the next five years. The team\'s technical depth is exceptional."',
+    quote: '"GrassFRONT didn\'t just build a platform — they understood our operational model and built something we can scale for the next five years. Procurement work that previously took 6 hours daily is now completed in less than 2 hours. The system has significantly improved our operational efficiency."',
     name: 'Rohan Mehta',
     role: 'Founder, Horeca Mall',
   },
