@@ -1,8 +1,34 @@
+import { useRef, useCallback } from 'react';
 import './Hero.css';
 
 export default function Hero() {
+  const heroRef = useRef(null);
+  const spotRef = useRef(null);
+
+  const handleMouseMove = useCallback((e) => {
+    const rect = heroRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    spotRef.current.style.background = `radial-gradient(600px circle at ${x}px ${y}px,
+      rgba(31, 0, 255, 0.13) 0%,
+      rgba(31, 0, 255, 0.06) 35%,
+      transparent 70%)`;
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    spotRef.current.style.background = 'transparent';
+  }, []);
+
   return (
-    <section className="hero">
+    <section
+      className="hero"
+      ref={heroRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* spotlight overlay */}
+      <div className="hero-spotlight" ref={spotRef} />
+
       <div className="section-inner hero-inner">
         <div className="hero-left">
           <div className="hero-badge">
@@ -45,8 +71,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-
-
       </div>
     </section>
   );

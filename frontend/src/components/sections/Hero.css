@@ -18,6 +18,22 @@
   background-repeat: no-repeat;
 }
 
+/* ---- SPOTLIGHT HOVER OVERLAY ---- */
+.hero-spotlight {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  transition: background 0.08s ease;
+  border-radius: inherit;
+}
+
+/* Ensure content sits above spotlight */
+.hero-inner {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-inner {
   position: relative;
   width: 100%;
@@ -36,6 +52,7 @@
 
 .hero-badge {
   display: inline-flex;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
   align-items: center;
   gap: 10px;
   padding: 5.8px 13.8px;
@@ -108,10 +125,16 @@
   letter-spacing: 0.56px;
   text-transform: uppercase;
   color: var(--vulcan);
-  transition: background 0.2s;
+  transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
   white-space: nowrap;
+  box-shadow: 0 0 0 0 rgba(192,184,255,0);
 }
-.btn-primary:hover { background: var(--fog); }
+.btn-primary:hover {
+  background: var(--fog);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(31, 0, 255, 0.22);
+}
+.btn-primary:active { transform: translateY(0); }
 
 .btn-outline {
   display: inline-flex;
@@ -126,10 +149,16 @@
   letter-spacing: 0.56px;
   text-transform: uppercase;
   color: var(--white);
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.22s ease, background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
   white-space: nowrap;
 }
-.btn-outline:hover { border-color: rgba(192,184,255,0.5); background: rgba(192,184,255,0.05); }
+.btn-outline:hover {
+  border-color: rgba(192,184,255,0.55);
+  background: rgba(192,184,255,0.07);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(192, 184, 255, 0.1);
+}
+.btn-outline:active { transform: translateY(0); }
 
 .hero-stats {
   display: flex;
@@ -150,6 +179,15 @@
   line-height: 28px;
   color: var(--blue);
 }
+.hero-stat {
+  transition: transform 0.2s ease;
+  cursor: default;
+}
+.hero-stat:hover { transform: translateY(-3px); }
+.hero-stat:hover .stat-num {
+  text-shadow: 0 0 18px rgba(31, 0, 255, 0.6);
+}
+
 .stat-label {
   font-family: 'DM Sans', sans-serif;
   font-size: 12px;
