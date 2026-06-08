@@ -8,10 +8,15 @@ export default function Trusted() {
       <div className="trusted-inner">
         <span className="trusted-label">Trusted by growing businesses</span>
         <div className="trusted-divider" />
-        <div className="trusted-logos">
-          {LOGOS.map(l => (
-            <div key={l} className="trusted-logo">{l}</div>
-          ))}
+        <div className="trusted-marquee-wrapper">
+          <div className="trusted-marquee-track">
+            {[...LOGOS, ...LOGOS].map((l, i) => (
+              <div key={i} className="trusted-logo">
+                <span className="trusted-logo-dot" />
+                {l}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

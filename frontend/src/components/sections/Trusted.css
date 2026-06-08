@@ -4,6 +4,7 @@
   border-style: solid;
   border-color: var(--fog);
   padding: 28px 0;
+  overflow: hidden;
 }
 
 .trusted-inner {
@@ -13,6 +14,7 @@
   padding: 0 48px;
   max-width: 1280px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .trusted-label {
@@ -23,6 +25,7 @@
   text-transform: uppercase;
   color: var(--storm-gray);
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .trusted-divider {
@@ -32,11 +35,44 @@
   flex-shrink: 0;
 }
 
-.trusted-logos {
+/* ---- MARQUEE ---- */
+.trusted-marquee-wrapper {
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
+  /* fade edges */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 8%,
+    #000 92%,
+    transparent 100%
+  );
+}
+
+.trusted-marquee-track {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 48px;
+  gap: 52px;
+  width: max-content;
+  animation: marquee-slide 18s linear infinite;
+}
+
+/* pause on hover */
+.trusted-marquee-wrapper:hover .trusted-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-slide {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .trusted-logo {
@@ -46,11 +82,36 @@
   letter-spacing: -0.3px;
   color: var(--melrose);
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.2s ease;
+  cursor: default;
+}
+
+.trusted-logo:hover {
+  color: var(--white);
+}
+
+.trusted-logo-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--fog);
+  flex-shrink: 0;
+  opacity: 0.5;
 }
 
 @media (max-width: 768px) {
-  .trusted { padding: 20px 24px; }
-  .trusted-inner { flex-direction: column; align-items: flex-start; padding: 0; gap: 16px; }
+  .trusted { padding: 20px 0; }
+  .trusted-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 24px 0;
+    gap: 14px;
+    overflow: hidden;
+  }
   .trusted-divider { display: none; }
-  .trusted-logos { gap: 24px; }
-}
+  .trusted-marquee-wrapper { width: 100%; }
+  .trusted-marquee-track { gap: 36px; animation-duration: 12s; }
+}
