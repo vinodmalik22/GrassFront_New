@@ -1,101 +1,238 @@
+/* =============================================
+   PROCESS – Light Theme, Professional Timeline
+   ============================================= */
+
 .process {
-  border-top: 0.8px solid var(--blue-12);
-  padding: 100px 0 100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 79.8px;
+  background: #ffffff;
+  border-top: 1px solid rgba(13, 15, 26, 0.07);
+  padding: 70px 0 100px;
 }
 
-.services-head {
+.process-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* ── Head ── */
+.process-head {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 16px;
-  max-width: 700px;
   text-align: center;
 }
 
-.section-tag.center {
-  justify-content: center;
-}
-
-.services-head h2 {
+.process-head h2 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 54px;
-  line-height: 60px;
-  letter-spacing: -1.008px;
-  color: var(--white);
+  font-size: 44px;
+  line-height: 54px;
+  letter-spacing: -1px;
+  color: #0d0f1a;
+  margin: 0;
 }
 
-.services-head p {
+.process-sub {
   font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
   font-size: 16px;
   line-height: 26px;
-  color: var(--storm-gray);
-  max-width: 626px;
+  color: #5a6074;
+  max-width: 520px;
+  margin: 0;
 }
 
-.process-grid {
-  width: 1184px;
-  max-width: 100%;
+/* ── Timeline container ── */
+.process-timeline {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  border: 1px solid var(--blue-12);
-  background: var(--blue-12);
-  gap: 1px;
+  gap: 0;
+  align-items: start;
 }
 
+/* The horizontal rule connecting all nodes */
+.process-line {
+  position: absolute;
+  top: 27px; /* vertically centred on the 56px node */
+  left: calc(100% / 10);       /* starts at centre of first node */
+  right: calc(100% / 10);      /* ends at centre of last node */
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(31, 0, 255, 0.08) 0%,
+    rgba(31, 0, 255, 0.3) 50%,
+    rgba(31, 0, 255, 0.08) 100%
+  );
+  z-index: 0;
+}
+
+/* ── Each step column ── */
 .process-step {
-  background: var(--vulcan);
-  padding: 36px 28px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+  padding: 0 12px;
 }
 
-.process-num {
+/* ── Node circle ── */
+.process-node {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1.5px solid rgba(31, 0, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  box-shadow: 0 2px 12px rgba(31, 0, 255, 0.06);
+}
+
+.process-step:hover .process-node {
+  border-color: #1f00ff;
+  background: rgba(31, 0, 255, 0.04);
+  box-shadow: 0 4px 20px rgba(31, 0, 255, 0.18);
+}
+
+.process-node-icon {
+  color: #1f00ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease;
+}
+
+.process-step:hover .process-node-icon {
+  transform: scale(1.1);
+}
+
+/* ── Card below node ── */
+.process-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.process-step-num {
   font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.88px;
-  color: var(--manatee);
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  color: rgba(31, 0, 255, 0.5);
+  text-transform: uppercase;
+  line-height: 1;
 }
 
-.process-step h3 {
+.process-step-title {
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 20px;
-  letter-spacing: -0.36px;
-  color: var(--white);
-  padding: 11.2px 0 0.59px;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.2px;
+  color: #0d0f1a;
+  margin: 4px 0 0;
 }
 
-.process-step p {
+.process-step-desc {
   font-family: 'DM Sans', sans-serif;
-  font-weight: 300;
-  font-size: 17px;
-  line-height: 27px;
-  color: var(--storm-gray);
+  font-size: 13px;
+  line-height: 21px;
+  color: #6b7280;
+  margin: 0;
 }
 
-@media (max-width: 1280px) {
-  .process-grid { width: calc(100% - 96px); margin: 0 48px; }
-}
-
+/* ── Tablet ── */
 @media (max-width: 1024px) {
-  .process-grid { width: calc(100% - 64px); margin: 0 32px; }
+  .process {
+    padding: 72px 0 80px;
+  }
+  .process-inner {
+    padding: 0 32px;
+    gap: 56px;
+  }
+  .process-timeline {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+  }
+  .process-step {
+    padding: 0 8px;
+  }
+  .process-head h2 {
+    font-size: 36px;
+    line-height: 46px;
+  }
+  .process-step-title {
+    font-size: 13px;
+  }
+  .process-step-desc {
+    font-size: 12px;
+    line-height: 19px;
+  }
 }
 
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  .process { padding: 60px 0; gap: 40px; }
-  .services-head { padding: 0 24px; }
-  .services-head h2 { font-size: 36px; line-height: 44px; }
-  .process-grid {
-    width: calc(100% - 48px);
-    margin: 0 24px;
+  .process {
+    padding: 56px 24px;
+  }
+  .process-inner {
+    padding: 0;
+    gap: 40px;
+  }
+  .process-head h2 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  .process-sub {
+    font-size: 14px;
+  }
+
+  /* Vertical stack on mobile */
+  .process-timeline {
     grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .process-line {
+    top: 0;
+    bottom: 0;
+    left: 27px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(
+      180deg,
+      rgba(31, 0, 255, 0.08) 0%,
+      rgba(31, 0, 255, 0.3) 50%,
+      rgba(31, 0, 255, 0.08) 100%
+    );
+  }
+
+  .process-step {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 0 32px 0;
+    gap: 20px;
+  }
+
+  .process-node {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+  }
+
+  .process-card {
+    align-items: flex-start;
+    text-align: left;
+    padding-top: 4px;
   }
 }

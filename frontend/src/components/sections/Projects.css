@@ -1,5 +1,5 @@
 .projects {
-  background: var(--white-lilac);
+  background: var(--white);
   border-top: 1px solid var(--fog);
   padding: 70px 0;
 }
@@ -296,4 +296,4 @@
     justify-content: flex-start;
     margin-top: 8px;
   }
-}
+}

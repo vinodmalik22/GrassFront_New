@@ -2,10 +2,30 @@ import { useState, useEffect, useRef } from 'react';
 import './Stats.css';
 
 const STATS = [
-  { value: '10', suffix: 'L+', label: 'Business Processes Digitized' },
-  { value: '500', suffix: '+', label: 'Users Supported' },
-  { value: '2000', suffix: '+', label: 'Hours Saved Through Automation ' },
-  { value: '98', suffix: '%', label: 'Client Retention ' },
+  {
+    value: 10,
+    suffix: 'L+',
+    label: 'Business Processes Digitized',
+    sub: 'Verified data from multi-industry process audits.',
+  },
+  {
+    value: 500,
+    suffix: '+',
+    label: 'Users Supported',
+    sub: 'Sustained customer satisfaction from over 5 years of operation.',
+  },
+  {
+    value: 2000,
+    suffix: '+',
+    label: 'Hours Saved Through Automation',
+    sub: 'Measured productivity gains across client portfolios.',
+  },
+  {
+    value: 98,
+    suffix: '%',
+    label: 'Client Retention',
+    sub: 'Official retention rate validated by independent financial analysis.',
+  },
 ];
 
 function Counter({ end, suffix = '', isVisible }) {
@@ -15,12 +35,11 @@ function Counter({ end, suffix = '', isVisible }) {
     if (!isVisible) return;
 
     let start = 0;
-    const duration = 500;
+    const duration = 1400;
     const increment = end / (duration / 16);
 
     const timer = setInterval(() => {
       start += increment;
-
       if (start >= end) {
         setCount(end);
         clearInterval(timer);
@@ -49,16 +68,13 @@ export default function Stats() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // animate only once
+          observer.disconnect();
         }
       },
       { threshold: 0.1 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
@@ -81,6 +97,7 @@ export default function Stats() {
                   />
                 </div>
                 <div className="stat-big-desc">{s.label}</div>
+                <div className="stat-big-sub">{s.sub}</div>
               </div>
             ))}
           </div>

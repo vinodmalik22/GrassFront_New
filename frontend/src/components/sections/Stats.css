@@ -1,13 +1,19 @@
+/* =============================================
+   STATS – Light Theme
+   ============================================= */
+
 .stats-section {
+  background: #ffffff;
   border-width: 0.8px 0;
   border-style: solid;
-  border-color: var(--blue-12);
+  border-color: rgba(31, 0, 255, 0.08);
   padding: 80px 0;
 }
 
 .stats-frame {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0 48px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,11 +25,11 @@
   font-size: 11px;
   letter-spacing: 1.54px;
   text-transform: uppercase;
-  color: var(--blue);
+  color: #1f00ff;
 }
 
 .stats-section .section-inner {
-  gap: 48px;
+  gap: 56px;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -34,70 +40,94 @@
 .stats-section h2 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 54px;
+  font-size: 52px;
   line-height: 60px;
-  letter-spacing: -1.008px;
-  color: var(--white);
+  letter-spacing: -1px;
+  color: #0d0f1a;
   text-align: center;
 }
 
+/* ---- Grid: no borders, no backgrounds, just columns ---- */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  border: 1px solid var(--blue-12);
-  background: rgba(31, 0, 255, 0.24);
-  gap: 1px;
+  gap: 0;
+  border: none;
+  background: none;
+}
+
+/* Divider between columns only */
+.stat-big-card + .stat-big-card {
+  border-left: 1px solid rgba(31, 0, 255, 0.1);
 }
 
 .stat-big-card {
-  background: var(--vulcan);
-  padding: 56px 40px;
+  background: transparent;
+  padding: 0 40px 0 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   text-align: center;
 }
 
+/* Big number — blue accent */
 .stat-big-num {
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 500;
-  font-size: 40px;
-  line-height: 64px;
-  letter-spacing: -2.56px;
-  color: var(--white-lilac);
+  font-weight: 700;
+  font-size: 50px;
+  line-height: 68px;
+  letter-spacing: -2px;
+  color: var(--blue);
   text-align: center;
 }
 
+/* Label — dark, prominent */
 .stat-big-desc {
   font-family: 'DM Sans', sans-serif;
-  font-size: 16px;
-  line-height: 26px;
-  letter-spacing: 0.32px;
-  color: var(--storm-gray);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22px;
+  letter-spacing: 0.2px;
+  color: #0d0f1a;
   text-align: center;
 }
 
-/* ── Tablet ──────────────────────────────────────────────────────────────── */
+/* Sub-description */
+.stat-big-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 19px;
+  color: #7b8299;
+  text-align: center;
+  max-width: 180px;
+}
+
+/* ── Tablet ── */
 @media (max-width: 1024px) {
   .stats-section {
     padding: 80px 0;
   }
+  .stat-big-num {
+    font-size: 52px;
+    line-height: 56px;
+  }
 }
 
+/* ── Mobile ── */
 @media (max-width: 768px) {
   .stats-section {
     padding: 56px 24px;
   }
 
-  /* Center all frame content */
   .stats-frame {
+    padding: 0;
     align-items: center;
     text-align: center;
   }
 
-  /* Remove side padding so grid fills the container */
   .stats-section .section-inner {
     gap: 32px;
     align-items: center;
@@ -108,24 +138,34 @@
     font-size: 30px;
     line-height: 40px;
     letter-spacing: -0.5px;
-    text-align: center;
   }
 
-  /* 2-column grid */
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
-    width: 100%;
+    gap: 40px 0;
+  }
+
+  .stat-big-card + .stat-big-card {
+    border-left: none;
+  }
+
+  /* Dividers for 2-col layout */
+  .stat-big-card:nth-child(2n) {
+    border-left: 1px solid rgba(31, 0, 255, 0.1);
+  }
+  .stat-big-card:nth-child(3),
+  .stat-big-card:nth-child(4) {
+    border-top: 1px solid rgba(31, 0, 255, 0.1);
+    padding-top: 32px;
   }
 
   .stat-big-card {
-    padding: 28px 16px;
-    align-items: center;
-    text-align: center;
+    padding: 0 20px;
   }
 
   .stat-big-num {
     font-size: 44px;
-    line-height: 44px;
+    line-height: 48px;
     letter-spacing: -1.5px;
   }
 
