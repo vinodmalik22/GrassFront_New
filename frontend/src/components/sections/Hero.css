@@ -7,12 +7,13 @@
   overflow: hidden;
   background-image:
     linear-gradient(
-      135deg,
-      rgba(6, 5, 20, 0.82) 0%,
-      rgba(6, 5, 20, 0.65) 50%,
-      rgba(6, 5, 20, 0.72) 100%
+      90deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.95) 40%,
+      rgba(255, 255, 255, 0.3) 70%,
+      rgba(255, 255, 255, 0) 100%
     ),
-    url('/assets/hero-bg.png');
+    url('/assets/gemini-hero-bg.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -56,9 +57,9 @@
   align-items: center;
   gap: 10px;
   padding: 5.8px 13.8px;
-  background: var(--mirage);
-  border: 1px solid rgba(192,184,255,0.25);
-  border-radius: 2px;
+  background: var(--white);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
   width: fit-content;
   margin-top: 20px;
 }
@@ -84,7 +85,7 @@
   font-size: 54px;
   line-height: 62px;
   letter-spacing: -1.2px;
-  color: var(--white);
+  color: var(--haiti);
   margin-top: 28px;
 }
 .hero-heading-accent { color: var(--blue); }
@@ -101,7 +102,7 @@
   font-weight: 300;
   font-size: 17px;
   line-height: 29px;
-  color: var(--storm-gray);
+  color: var(--charade);
   max-width: 480px;
 }
 
@@ -117,8 +118,8 @@
   align-items: center;
   justify-content: center;
   padding: 14px 32px;
-  background: var(--white-lilac);
-  border-radius: 2px;
+  background: var(--white);
+  border-radius: 4px;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 14px;
@@ -127,12 +128,12 @@
   color: var(--vulcan);
   transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
   white-space: nowrap;
-  box-shadow: 0 0 0 0 rgba(192,184,255,0);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
 .btn-primary:hover {
-  background: var(--fog);
+  background: var(--white-lilac);
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(31, 0, 255, 0.22);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
 }
 .btn-primary:active { transform: translateY(0); }
 
@@ -141,22 +142,22 @@
   align-items: center;
   justify-content: center;
   padding: 13.8px 31.8px;
-  border: 1px solid rgba(192,184,255,0.25);
-  border-radius: 2px;
+  border: 1px solid rgba(0,0,0,0.6);
+  border-radius: 4px;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.56px;
   text-transform: uppercase;
-  color: var(--white);
+  color: var(--vulcan);
   transition: border-color 0.22s ease, background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
   white-space: nowrap;
 }
 .btn-outline:hover {
-  border-color: rgba(192,184,255,0.55);
-  background: rgba(192,184,255,0.07);
+  border-color: var(--vulcan);
+  background: rgba(0,0,0,0.03);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(192, 184, 255, 0.1);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 .btn-outline:active { transform: translateY(0); }
 
@@ -177,7 +178,7 @@
   font-weight: 700;
   font-size: 28px;
   line-height: 28px;
-  color: var(--blue);
+  color: var(--haiti);
 }
 .hero-stat {
   transition: transform 0.2s ease;
@@ -193,7 +194,7 @@
   font-size: 12px;
   line-height: 19px;
   letter-spacing: 0.48px;
-  color: var(--manatee);
+  color: var(--charade);
 }
 
 /* ---- RIGHT ---- */
