@@ -77,10 +77,10 @@
 
 .trusted-logo {
   font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 16px;
   letter-spacing: -0.3px;
-  color: var(--melrose);
+  color: var(--blue);
   white-space: nowrap;
   display: flex;
   align-items: center;
@@ -90,7 +90,7 @@
 }
 
 .trusted-logo:hover {
-  color: var(--white);
+  color: #000;
 }
 
 .trusted-logo-dot {
@@ -114,4 +114,4 @@
   .trusted-divider { display: none; }
   .trusted-marquee-wrapper { width: 100%; }
   .trusted-marquee-track { gap: 36px; animation-duration: 12s; }
-}
+}

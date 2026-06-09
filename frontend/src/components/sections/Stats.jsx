@@ -3,19 +3,19 @@ import './Stats.css';
 
 const STATS = [
   {
-    value: 10,
+    value: 88,
     suffix: 'L+',
     label: 'Business Processes Digitized',
     sub: 'Verified data from multi-industry process audits.',
   },
   {
-    value: 500,
+    value: 540,
     suffix: '+',
     label: 'Users Supported',
     sub: 'Sustained customer satisfaction from over 5 years of operation.',
   },
   {
-    value: 2000,
+    value: 3700,
     suffix: '+',
     label: 'Hours Saved Through Automation',
     sub: 'Measured productivity gains across client portfolios.',

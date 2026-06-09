@@ -1,33 +1,44 @@
-import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
-import './Projects.css';
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useMemo,
+  useCallback,
+} from "react";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import "./Projects.css";
 
 const PROJECTS = [
   {
-    image: '/assets/horeca_meet_logo.jpg',
-    url: 'https://www.horecameet.com',
-    tech: ['Next.js', 'Node.js', 'PostgreSQL', 'AWS'],
-    title: 'Horeca Mall — B2B Procurement Platform',
-    desc: 'Helped a hospitality business reduce procurement time by 68%, automate vendor management, and manage inventory across multiple locations through a centralized procurement platform. Multi-vendor marketplace with real-time stock tracking, automated reorder workflows, and an integrated payment gateway for bulk purchasing across 500+ SKUs.',
-    outcome: 'Reduced procurement time by 68% · Onboarded 120+ vendors in first quarter',
-    bg: '#ffffff',
+    image: "/assets/horeca_meet_logo.jpg",
+    url: "https://www.horecameet.com",
+    link: "https://www.horecameet.com",
+    tech: ["Next.js", "Node.js", "PostgreSQL", "AWS"],
+    title: "Horeca Mall — B2B Procurement Platform",
+    desc: "Reduced procurement time by 68% through a centralized platform for vendor management, inventory tracking, and automated purchasing.",
+    outcome:
+      "Reduced procurement time by 68% · Onboarded 120+ vendors in first quarter",
+    bg: "#ffffff",
   },
   {
-    image: '/assets/bizzstudio.jpeg',
-    tech: ['React', 'FastAPI', 'Redis'],
-    title: 'Bizz Studio — Operations Dashboard',
-    desc: 'Centralized operations intelligence platform with real-time KPI tracking, automated reporting, and multi-branch management tools for a growing creative services business.',
-    outcome: 'Consolidated 6 spreadsheet tools into a single platform',
-    bg: '#000000',
+    image: "/assets/bizzstudio.jpeg",
+    link: "https://bizzstudio.co",
+    tech: ["React", "FastAPI", "Redis"],
+
+    title: "Bizz Studio — Operations Dashboard",
+    desc: "Centralized operations intelligence platform with real-time KPI tracking, automated reporting, and multi-branch management tools for a growing creative services business.",
+    outcome: "Consolidated 6 spreadsheet tools into a single platform",
+    bg: "#000000",
   },
   {
-    image: '/assets/platter_pos.jpg',
-    tech: ['React Native', 'Firebase'],
-    title: 'Platter — Restaurant POS & Ordering',
-    desc: 'End-to-end point-of-sale and digital ordering system with kitchen display integration, table management, and analytics reporting.',
-    outcome: 'Deployed across 14 locations with 99.9% uptime',
-    bg: '#ffffff',
+    image: "/assets/platter_pos.jpg",
+    link: "https://www.platterpos.com",
+    tech: ["React Native", "Firebase"],
+    title: "Platter — Restaurant POS & Ordering",
+    desc: "End-to-end point-of-sale and digital ordering system with kitchen display integration, table management, and analytics reporting.",
+    outcome: "Deployed across 14 locations with 99.9% uptime",
+    bg: "#ffffff",
   },
 ];
 
@@ -40,7 +51,9 @@ function calculateGap(width) {
   if (width <= minWidth) return minGap;
   if (width >= maxWidth)
     return Math.max(minGap, maxGap + 0.06018 * (width - maxWidth));
-  return minGap + (maxGap - minGap) * ((width - minWidth) / (maxWidth - minWidth));
+  return (
+    minGap + (maxGap - minGap) * ((width - minWidth) / (maxWidth - minWidth))
+  );
 }
 
 export default function Projects() {
@@ -73,7 +86,8 @@ export default function Projects() {
       setActiveIndex((prev) => (prev + 1) % projectsLength);
     }, 5000);
     return () => {
-      if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
+      if (autoplayIntervalRef.current)
+        clearInterval(autoplayIntervalRef.current);
     };
   }, [projectsLength]);
 
@@ -103,7 +117,8 @@ export default function Projects() {
     const maxStickUp = gap * 0.8;
     const offset = (index - activeIndex + projectsLength) % projectsLength;
     const isActive = index === activeIndex;
-    const isLeft = (activeIndex - 1 + projectsLength) % projectsLength === index;
+    const isLeft =
+      (activeIndex - 1 + projectsLength) % projectsLength === index;
     const isRight = (activeIndex + 1) % projectsLength === index;
 
     if (isActive) {
@@ -160,7 +175,10 @@ export default function Projects() {
             </div>
             <h2>Delivering impact across industries.</h2>
           </div>
-          <p className="projects-sub">A selection of systems and platforms delivered across different business environments.</p>
+          <p className="projects-sub">
+            A selection of systems and platforms delivered across different
+            business environments.
+          </p>
         </div>
 
         {/* Interactive Slider Grid */}
@@ -173,15 +191,28 @@ export default function Projects() {
                 className="project-visual-card"
                 style={{
                   ...getImageStyle(index),
-                  backgroundColor: p.bg || 'var(--haiti)'
+                  backgroundColor: p.bg || "var(--haiti)",
                 }}
               >
                 {p.url ? (
-                  <a href={p.url} target="_blank" rel="noreferrer" className="project-image-link">
-                    <img src={p.image} alt={p.title} className="project-carousel-image" />
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="project-image-link"
+                  >
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="project-carousel-image"
+                    />
                   </a>
                 ) : (
-                  <img src={p.image} alt={p.title} className="project-carousel-image" />
+                  <img
+                    src={p.image}
+                    alt={p.title}
+                    className="project-carousel-image"
+                  />
                 )}
               </div>
             ))}
@@ -200,8 +231,10 @@ export default function Projects() {
                 className="project-details-content"
               >
                 <div className="project-tag-row">
-                  {activeProject.tech.map(t => (
-                    <span key={t} className="project-tech">{t}</span>
+                  {activeProject.tech.map((t) => (
+                    <span key={t} className="project-tech">
+                      {t}
+                    </span>
                   ))}
                 </div>
 
@@ -237,6 +270,11 @@ export default function Projects() {
                   <span className="outcome-arrow">↗</span>
                   <span className="outcome-text">{activeProject.outcome}</span>
                 </div>
+                <div className="project-read-more">
+                  <a href={activeProject.pageUrl} className="read-more-link">
+                    Read Full Case Study →
+                  </a>
+                </div>
               </motion.div>
             </AnimatePresence>
 
@@ -246,25 +284,31 @@ export default function Projects() {
                 className="arrow-button prev-button"
                 onClick={handlePrev}
                 style={{
-                  backgroundColor: hoverPrev ? 'var(--blue)' : 'var(--white)',
+                  backgroundColor: hoverPrev ? "var(--blue)" : "var(--white)",
                 }}
                 onMouseEnter={() => setHoverPrev(true)}
                 onMouseLeave={() => setHoverPrev(false)}
                 aria-label="Previous project"
               >
-                <FaArrowLeft size={16} color={hoverPrev ? 'var(--white)' : 'var(--blue)'} />
+                <FaArrowLeft
+                  size={16}
+                  color={hoverPrev ? "var(--white)" : "var(--blue)"}
+                />
               </button>
               <button
                 className="arrow-button next-button"
                 onClick={handleNext}
                 style={{
-                  backgroundColor: hoverNext ? 'var(--blue)' : 'var(--white)',
+                  backgroundColor: hoverNext ? "var(--blue)" : "var(--white)",
                 }}
                 onMouseEnter={() => setHoverNext(true)}
                 onMouseLeave={() => setHoverNext(false)}
                 aria-label="Next project"
               >
-                <FaArrowRight size={16} color={hoverNext ? 'var(--white)' : 'var(--blue)'} />
+                <FaArrowRight
+                  size={16}
+                  color={hoverNext ? "var(--white)" : "var(--blue)"}
+                />
               </button>
             </div>
           </div>
@@ -272,4 +316,4 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+}

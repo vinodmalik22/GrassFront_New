@@ -119,6 +119,7 @@
   justify-content: center;
   padding: 14px 32px;
   background: var(--white);
+  border: 1px solid rgba(0,0,0,0.6);
   border-radius: 4px;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -131,7 +132,8 @@
   box-shadow: 0 4px 14px rgba(0,0,0,0.08);
 }
 .btn-primary:hover {
-  background: var(--white-lilac);
+  background: var(--blue);
+  color: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(0,0,0,0.12);
 }
@@ -155,7 +157,8 @@
 }
 .btn-outline:hover {
   border-color: var(--vulcan);
-  background: rgba(0,0,0,0.03);
+  background: var(--blue);
+  color: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }

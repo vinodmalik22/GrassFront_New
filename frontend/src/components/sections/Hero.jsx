@@ -31,10 +31,6 @@ export default function Hero() {
 
       <div className="section-inner hero-inner">
         <div className="hero-left">
-          <div className="hero-badge">
-            <span className="hero-badge-dot" />
-            <span>Registered IT Company · Gurugram, India</span>
-          </div>
 
           <h1 className="hero-heading">
             Build Software, ERP &<br />AI Automation Solutions<br />
