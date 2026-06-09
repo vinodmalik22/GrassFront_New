@@ -2,9 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 import './Stats.css';
 
 const STATS = [
-  { value: '10', suffix: 'Cr+', label: 'Business Processes Digitized' },
-  { value: '1000', suffix: '+', label: 'Users Supported' },
-  { value: '5000', suffix: '+', label: 'Hours Saved Through Automation ' },
+  { value: '10', suffix: 'L+', label: 'Business Processes Digitized' },
+  { value: '500', suffix: '+', label: 'Users Supported' },
+  { value: '2000', suffix: '+', label: 'Hours Saved Through Automation ' },
   { value: '98', suffix: '%', label: 'Client Retention ' },
 ];
 
