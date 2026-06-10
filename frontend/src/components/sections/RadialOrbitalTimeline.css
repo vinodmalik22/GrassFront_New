@@ -1,0 +1,418 @@
+/* RadialOrbitalTimeline.css - Light Theme */
+
+.rot-container {
+  width: 100%;
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+}
+
+.rot-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rot-orbit {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1000px;
+  transition: transform 0.1s linear;
+}
+
+/* Center Glowing/* Core elements */
+.rot-center-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1f00ff, #00d2ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 40px rgba(31, 0, 255, 0.15), inset 0 0 20px rgba(255,255,255,0.2);
+  z-index: 10;
+}
+
+.rot-core-inner {
+  width: 44px;
+  height: 44px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Orbit Path */
+.rot-orbit-path {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  border: 1px solid rgba(13, 15, 26, 0.06);
+  z-index: 0;
+}
+
+.rot-orbit-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Nodes */
+.rot-node {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.rot-node-energy {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 70%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.rot-pulsing {
+  animation: pulse-energy 2s infinite ease-in-out;
+}
+
+@keyframes pulse-energy {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+.rot-node-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid;
+  transition: all 0.3s ease;
+}
+
+.rot-node-circle.default {
+  transform: scale(1);
+}
+
+.rot-node-circle.expanded {
+  transform: scale(1.15);
+}
+
+/* Node Label */
+.rot-node-label {
+  position: absolute;
+  top: 68px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: #5a6074;
+  transition: all 0.3s ease;
+}
+
+.rot-node-label.expanded {
+  color: #0d0f1a;
+  transform: translateX(-50%) scale(1.1);
+  top: 56px;
+}
+
+/* Card */
+.rot-card {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 280px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(13, 15, 26, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(13, 15, 26, 0.08);
+  overflow: visible;
+  padding: 16px;
+  text-align: left;
+}
+
+.rot-card-line {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 12px;
+  background: rgba(31, 0, 255, 0.3);
+}
+
+.rot-card-header {
+  margin-bottom: 12px;
+}
+
+.rot-card-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.rot-badge {
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: 1px solid;
+}
+
+.rot-badge.completed {
+  color: #1f00ff;
+  background: rgba(31, 0, 255, 0.1);
+  border-color: rgba(31, 0, 255, 0.2);
+}
+
+.rot-badge.in-progress {
+  color: #0d0f1a;
+  background: #ffffff;
+  border-color: #0d0f1a;
+}
+
+.rot-badge.pending {
+  color: #6b7280;
+  background: rgba(107, 114, 128, 0.1);
+  border-color: rgba(107, 114, 128, 0.2);
+}
+
+.rot-date {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.rot-card-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #0d0f1a;
+  margin: 0;
+}
+
+.rot-card-content p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5a6074;
+  margin: 0 0 16px 0;
+}
+
+/* Energy */
+.rot-card-energy {
+  padding-top: 12px;
+  border-top: 1px solid rgba(13, 15, 26, 0.08);
+}
+
+.rot-energy-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #0d0f1a;
+  margin-bottom: 6px;
+}
+
+.rot-energy-label {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.rot-zap-icon {
+  margin-right: 4px;
+  color: #1f00ff;
+}
+
+.rot-energy-value {
+  font-family: 'DM Mono', monospace;
+  font-weight: 600;
+}
+
+.rot-energy-bar-bg {
+  width: 100%;
+  height: 4px;
+  background: rgba(13, 15, 26, 0.08);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.rot-energy-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #1f00ff, #00c3ff);
+  border-radius: 4px;
+}
+
+/* Related */
+.rot-card-related {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(13, 15, 26, 0.08);
+}
+
+.rot-related-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.rot-link-icon {
+  color: #6b7280;
+  margin-right: 4px;
+}
+
+.rot-related-header h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.rot-related-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rot-related-btn {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: 1px solid rgba(13, 15, 26, 0.15);
+  color: #0d0f1a;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  padding: 4px 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.rot-related-btn:hover {
+  background: rgba(13, 15, 26, 0.04);
+  border-color: rgba(13, 15, 26, 0.3);
+}
+
+.rot-arrow-icon {
+  margin-left: 4px;
+  color: #6b7280;
+}
+
+/* Animations */
+@keyframes rotPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes rotPing {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+
+  75%,
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes rotPulseEnergy {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes rotPulseLight {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* ── Responsive Scaling ── */
+@media (max-width: 1024px) {
+  .rot-container {
+    height: 500px;
+  }
+  .rot-wrapper {
+    transform: scale(0.85);
+  }
+}
+
+@media (max-width: 768px) {
+  .rot-container {
+    height: 450px;
+  }
+  .rot-wrapper {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  .rot-container {
+    height: 380px;
+  }
+  .rot-wrapper {
+    transform: scale(0.55);
+  }
+}
