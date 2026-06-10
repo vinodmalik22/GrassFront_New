@@ -3,11 +3,15 @@
   top: 0; left: 0; right: 0;
   z-index: 100;
   height: 69px;
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(10px) saturate(120%);
-  -webkit-backdrop-filter: blur(10px) saturate(120%);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  box-shadow: 0 6px 20px rgba(10, 10, 20, 0.06);
+  background: var(--white-lilac);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(31, 0, 255, 0.12);
+
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.7) inset,
+    0 8px 24px rgba(15,23,42,0.08);
 }
 
 .navbar-inner {
@@ -38,14 +42,35 @@
   align-items: center;
 }
 .nav-links a {
+  position: relative;
   font-family: 'DM Sans', sans-serif;
   font-size: 14px;
   font-weight: 400;
   color: var(--charade);
-  transition: color 0.2s;
   letter-spacing: 0.2px;
+  transition: color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.nav-links a:hover { color: var(--blue); }
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--blue);
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a:hover {
+  color: var(--blue);
+}
+
+.nav-links a:hover::after {
+  transform: translateX(-50%) scaleX(1);
+}
 
 .nav-cta {
   font-family: 'Space Grotesk', sans-serif;
