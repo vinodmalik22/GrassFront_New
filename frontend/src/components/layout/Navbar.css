@@ -95,8 +95,16 @@
   color: var(--blue, #0ea5e9);
   white-space: nowrap;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
 .nav-logo span { color: var(--vulcan); }
+
+.logo-image {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
 
 .nav-links-container {
   display: flex;
