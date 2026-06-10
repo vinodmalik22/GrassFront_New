@@ -16,7 +16,9 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
-            <h3 className="footer-logo">grass<span>FRONT</span></h3>
+            <a href="#" className="footer-logo" style={{ textDecoration: 'none' }}>
+              <img src="/assets/image.png" alt="GrassFront Logo" className="footer-logo-image" />
+            </a>
             <p>GrassFRONT builds scalable digital systems and operational infrastructure for businesses focused on long-term growth.</p>
           </div>
 
