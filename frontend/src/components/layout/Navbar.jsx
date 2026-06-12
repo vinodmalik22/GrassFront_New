@@ -1,14 +1,15 @@
 import { useState, useRef, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import './Navbar.css';
 
 const NAV_LINKS = [
-  { label: 'Home', href: '#' },
+  { label: 'Home', href: '/' },
   {
     label: 'Solutions', href: '#solutions', dropdown: [
-      { label: 'ERP Development', href: '#erp' },
-      { label: 'Custom Software Development', href: '#custom-software' },
-      { label: 'AI Automation', href: '#ai-automation' },
+      { label: 'ERP Development', href: '/erp' },
+      { label: 'Custom Software Development', href: '/custom-software' },
+      { label: 'AI Automation', href: '/ai-automation' },
       { label: 'Business Intelligence', href: '#bi' },
       { label: 'Procurement Management Software', href: '#procurement' },
       { label: 'System Integration', href: '#integration' },
@@ -47,6 +48,14 @@ export default function Navbar() {
       if (window.scrollY >= 50) setHidden(true);
     }, 2000);
   };
+
+  const renderLink = (href, children, props = {}) => (
+    href.startsWith('/') ? (
+      <Link to={href} {...props}>{children}</Link>
+    ) : (
+      <a href={href} {...props}>{children}</a>
+    )
+  );
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious();
@@ -112,16 +121,16 @@ export default function Navbar() {
                     onMouseEnter={() => l.dropdown && setActiveDropdown(l.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <a href={l.href}>
+                    {renderLink(l.href, <>
                       {l.label}
                       {l.dropdown && <span className="nav-chevron">▼</span>}
-                    </a>
+                    </>)}
                     {l.dropdown && activeDropdown === l.label && (
                       <div className="nav-dropdown">
                         {l.dropdown.map(item => (
-                          <a key={item.label} href={item.href} className="nav-dropdown-item">
-                            {item.label}
-                          </a>
+                          <div key={item.label} className="nav-dropdown-item-wrapper">
+                            {renderLink(item.href, item.label, { className: 'nav-dropdown-item' })}
+                          </div>
                         ))}
                       </div>
                     )}
@@ -149,16 +158,14 @@ export default function Navbar() {
             <ul>
               {NAV_LINKS.map(l => (
                 <li key={l.label}>
-                  <a href={l.href} onClick={() => setOpen(false)}>
+                  {renderLink(l.href, <>
                     {l.label}{l.dropdown && <span className="nav-chevron">▼</span>}
-                  </a>
+                  </>, { onClick: () => setOpen(false) })}
                   {l.dropdown && (
                     <ul className="nav-drawer-sub">
                       {l.dropdown.map(item => (
                         <li key={item.label}>
-                          <a href={item.href} onClick={() => setOpen(false)}>
-                            {item.label}
-                          </a>
+                          {renderLink(item.href, item.label, { onClick: () => setOpen(false) })}
                         </li>
                       ))}
                     </ul>

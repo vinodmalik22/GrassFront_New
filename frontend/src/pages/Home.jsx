@@ -52,7 +52,6 @@ export default function Home() {
       <About />
       <Capabilities />
       <Projects/>
-      <CaseStudies />
       <Why />
       <Stats />
       <FAQ />
