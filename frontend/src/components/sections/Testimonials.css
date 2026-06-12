@@ -202,6 +202,10 @@
     gap: 20px;
   }
 
+  .testi-nav-group {
+    margin-left: auto;
+  }
+
   .testimonials h2 {
     font-size: 28px;
     line-height: 36px;

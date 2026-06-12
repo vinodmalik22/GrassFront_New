@@ -1,7 +1,7 @@
 .projects {
   background: var(--white);
   border-top: 1px solid var(--fog);
-  padding: 70px 0;
+  padding: 60px 0;
 }
 
 .projects-section-inner {
@@ -333,4 +333,89 @@
     justify-content: flex-start;
     margin-top: 8px;
   }
+}
+
+
+/* ── Append to Projects.css ── */
+
+/* Content blocks: Challenge / Solution / Results */
+.project-block {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-block-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--manatee, #9898b8);
+}
+
+.project-block-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--charade);
+}
+
+/* Thin divider between blocks */
+.project-divider {
+  height: 1px;
+  background: var(--fog, #e8e8f0);
+  flex-shrink: 0;
+}
+
+/* Results list */
+.project-results {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.project-result-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--blue);
+  line-height: 1.5;
+}
+
+.result-check {
+  color: #1bba6d;
+  font-size: 13px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Give details container enough height for the expanded content */
+.project-details-container {
+  min-height: 520px !important;
+  gap: 16px !important;
+}
+
+.project-details-content {
+  gap: 12px !important;
+}
+
+/* Tighten title since we have more content below */
+.project-title {
+  font-size: 22px !important;
+  line-height: 30px !important;
+  margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+  .project-details-container { min-height: unset !important; }
+  .project-title { font-size: 20px !important; line-height: 27px !important; }
+  .project-block-text { font-size: 13px; }
+  .project-result-item { font-size: 13px; }
 }

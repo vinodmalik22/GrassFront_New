@@ -1,60 +1,133 @@
 import './Footer.css';
 
-const SERVICES = ['Enterprise Systems', 'Intelligent Automation', 'Cloud & Infrastructure', 'Data & Analytics', 'Technical Consulting'];
-const COMPANY = ['About', 'Projects', 'Insights', 'Careers', 'Contact'];
-const CONTACT = [
-  { type: 'Jaipur Office', label: 'Third Floor, AB Heights-8, Teachers Colony, Baba Market, DCM, Ajmer Road, Vaishali Nagar, Jaipur, Rajasthan', href: 'https://maps.google.com?q=Third+Floor,+AB+Heights-8,+Teachers+Colony,+Baba+Market,+DCM,+Ajmer+Road,+Vaishali+Nagar,+Jaipur,+Rajasthan' },
-  { type: 'Gurugram Office', label: 'Plot 23, Sector 18, Maruti Industrial Development Area, Gurugram, Haryana 122015', href: 'https://maps.google.com?q=Plot+23,+Sector+18,+Maruti+Industrial+Development+Area,+Gurugram,+Haryana+122015' },
-  // { type: 'Phone', label: '+91 70146 26389', href: 'tel:+917014626389' },
-  { type: 'Email', label: 'Info@grassfront.com', href: 'mailto:Info@grassfront.com' },
+const SERVICES = [
+  { label: 'ERP Development', href: '#erp' },
+  { label: 'Custom Software', href: '#custom-software' },
+  { label: 'AI Automation', href: '#ai-automation' },
+  { label: 'Business Intelligence', href: '#bi' },
+  { label: 'System Integration', href: '#integration' },
+  { label: 'Tech Consulting', href: '#consulting' },
+];
+
+const INDUSTRIES = [
+  { label: 'Hospitality', href: '#hospitality' },
+  { label: 'Manufacturing', href: '#manufacturing' },
+  { label: 'Retail', href: '#retail' },
+  { label: 'Logistics', href: '#logistics' },
+  { label: 'Professional Services', href: '#professional-services' },
+];
+
+const COMPANY = [
+  { label: 'About Us', href: '#about' },
+  { label: 'Case Studies', href: '#case-studies' },
+  { label: 'Insights', href: '#insights' },
+  { label: 'Careers', href: '#careers' },
+  { label: 'Contact', href: '#contact' },
+];
+
+const QUICK_LINKS = [
+  { label: 'FAQ', href: '#faq' },
+  { label: 'Get Free Audit', href: '#audit' },
+  { label: 'Book a Call', href: '#contact' },
+  { label: 'Privacy Policy', href: '#privacy' },
+  { label: 'Terms of Service', href: '#terms' },
+  { label: 'Sitemap', href: '#sitemap' },
+];
+
+const OFFICES = [
+  {
+    city: 'Gurugram',
+    address: 'Plot 23, Sector 18, MIDA, Gurugram, Haryana 122015',
+    href: 'https://maps.google.com?q=Plot+23,+Sector+18,+Maruti+Industrial+Development+Area,+Gurugram,+Haryana+122015',
+  },
+  {
+    city: 'Jaipur',
+    address: 'Third Floor, AB Heights-8, Teachers Colony, DCM, Ajmer Road, Vaishali Nagar, Jaipur, Rajasthan',
+    href: 'https://maps.google.com?q=Third+Floor,+AB+Heights-8,+Teachers+Colony,+Baba+Market,+DCM,+Ajmer+Road,+Vaishali+Nagar,+Jaipur,+Rajasthan',
+  },
+];
+
+const SOCIALS = [
+  { label: 'LI', title: 'LinkedIn', href: 'https://linkedin.com/company/grassfront' },
+  { label: 'TW', title: 'Twitter', href: '#' },
+  { label: 'YT', title: 'YouTube', href: '#' },
+  { label: 'FB', title: 'Facebook', href: '#' },
 ];
 
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
-        <div className="footer-grid">
-          {/* Brand */}
+
+        <div className="footer-top">
+
+          {/* ── Brand Column ── */}
           <div className="footer-brand">
-            <a href="#" className="footer-logo" style={{ textDecoration: 'none' }}>
-              <img src="/assets/image.png" alt="GrassFront Logo" className="footer-logo-image" />
+            <a href="#" className="footer-logo-wrap">
+              <img src="/assets/image.png" alt="GrassFront" className="footer-logo-image" />
             </a>
-            <p>GrassFRONT builds scalable digital systems and operational infrastructure for businesses focused on long-term growth.</p>
+            <p className="footer-tagline">
+              Scalable software, ERP systems, and AI-powered solutions that help organisations streamline operations and grow efficiently.
+            </p>
+
+            <div className="footer-offices">
+              {OFFICES.map(o => (
+                <a key={o.city} href={o.href} target="_blank" rel="noreferrer" className="footer-office">
+                  <span className="footer-office-city">{o.city}</span>
+                  <span className="footer-office-addr">{o.address}</span>
+                </a>
+              ))}
+            </div>
+
+            <a href="mailto:Info@grassfront.com" className="footer-email">
+              Info@grassfront.com
+            </a>
+
+            <div className="footer-socials">
+              {SOCIALS.map(s => (
+                <a key={s.label} href={s.href} aria-label={s.title} className="footer-social-btn" target="_blank" rel="noreferrer">
+                  {s.label}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Services */}
-          <div className="footer-col">
-            <h4>Services</h4>
-            <ul>{SERVICES.map(s => <li key={s}><a href="#services">{s}</a></li>)}</ul>
+          {/* ── Link Columns ── */}
+          <div className="footer-links">
+            <div className="footer-col">
+              <h4 className="footer-col-heading">Services</h4>
+              <ul className="footer-col-list">
+                {SERVICES.map(s => <li key={s.label}><a href={s.href}>{s.label}</a></li>)}
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4 className="footer-col-heading">Industries</h4>
+              <ul className="footer-col-list">
+                {INDUSTRIES.map(i => <li key={i.label}><a href={i.href}>{i.label}</a></li>)}
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4 className="footer-col-heading">Company</h4>
+              <ul className="footer-col-list">
+                {COMPANY.map(c => <li key={c.label}><a href={c.href}>{c.label}</a></li>)}
+              </ul>
+            </div>
+            <div className="footer-col">
+              <h4 className="footer-col-heading">Quick Links</h4>
+              <ul className="footer-col-list">
+                {QUICK_LINKS.map(q => <li key={q.label}><a href={q.href}>{q.label}</a></li>)}
+              </ul>
+            </div>
           </div>
 
-          {/* Company */}
-          <div className="footer-col">
-            <h4>Company</h4>
-            <ul>{COMPANY.map(c => <li key={c}><a href="#">{c}</a></li>)}</ul>
-          </div>
-
-          {/* Contact */}
-          <div className="footer-col">
-            <h4>Contact</h4>
-            <ul>{CONTACT.map(c => (
-              <li key={c.label} className="footer-contact-item">
-                <span className="footer-contact-type">{c.type}:</span>
-                <a href={c.href} target="_blank" rel="noreferrer">{c.label}</a>
-              </li>
-            ))}</ul>
-          </div>
         </div>
 
+        {/* ── Bottom Bar ── */}
         <div className="footer-bottom">
           <span className="footer-copy">© 2025 GrassFRONT Technologies Pvt. Ltd. All rights reserved.</span>
-          <div className="footer-legal">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms</a>
-            <a href="#">Cookies</a>
-            <a href="#">Sitemap</a>
-          </div>
+          <span className="footer-copy">🇮🇳</span>
         </div>
+
       </div>
     </footer>
   );

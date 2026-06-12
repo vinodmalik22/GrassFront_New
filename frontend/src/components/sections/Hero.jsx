@@ -33,37 +33,35 @@ export default function Hero() {
         <div className="hero-left">
 
           <h1 className="hero-heading">
-            Build Software, ERP &<br />AI Automation Solutions<br />
-            That Help Businesses<br />
-            <span className="hero-heading-accent">Grow Faster.</span>
+              Transform Manual Business Processes 
+              <br />
+              Into Scalable
+              <br />
+              <span className="hero-heading-accent">Digital Systems</span>
           </h1>
 
           <div className="hero-bottom">
             <p className="hero-sub">
-              GrassFRONT helps businesses automate operations, improve efficiency, reduce manual work, and scale with custom software, ERP systems, AI solutions, and business automation.
+                GrassFRONT helps growing businesses automate operations, reduce manual work, improve visibility, and scale faster through custom ERP, software development, and AI-powered automation.
             </p>
 
             <div className="hero-btns">
-              <a href="#contact" className="btn-primary">Get Free Consultation</a>
+                <a href="#contact" className="btn-primary">Get Free Business Process Audit</a>
               <a href="#contact" className="btn-outline">Book Discovery Call</a>
             </div>
 
-            <div className="hero-stats">
+              <div className="hero-stats">
               <div className="hero-stat">
                 <span className="stat-num">100+</span>
-                <span className="stat-label">Projects</span>
+                <span className="stat-label">Projects Delivered</span>
               </div>
               <div className="hero-stat">
                 <span className="stat-num">50+</span>
-                <span className="stat-label">Clients</span>
+                <span className="stat-label">Businesses Served</span>
               </div>
               <div className="hero-stat">
                 <span className="stat-num">100%</span>
                 <span className="stat-label">On-Time Delivery</span>
-              </div>
-              <div className="hero-stat">
-                <span className="stat-num">4.9</span>
-                <span className="stat-label">Client Rating</span>
               </div>
             </div>
           </div>

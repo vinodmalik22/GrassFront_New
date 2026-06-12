@@ -1,10 +1,4 @@
-import React, {
-  useEffect,
-  useRef,
-  useState,
-  useMemo,
-  useCallback,
-} from "react";
+import React, { useEffect, useRef, useState, useMemo, useCallback } from "react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { motion, AnimatePresence } from "framer-motion";
 import "./Projects.css";
@@ -13,47 +7,59 @@ const PROJECTS = [
   {
     image: "/assets/horeca_meet_logo.jpg",
     url: "https://www.horecameet.com",
-    link: "https://www.horecameet.com",
     tech: ["Next.js", "Node.js", "PostgreSQL", "AWS"],
+    category: "Procurement · ERP",
     title: "Horeca Mall — B2B Procurement Platform",
-    desc: "Reduced procurement time by 68% through a centralized platform for vendor management, inventory tracking, and automated purchasing.",
-    outcome:
-      "Reduced procurement time by 68% · Onboarded 120+ vendors in first quarter",
+    challenge: "Managing procurement workflows through spreadsheets and disconnected manual processes across multiple vendor relationships.",
+    solution: "Custom procurement management platform with automated approvals, vendor management, and real-time inventory tracking.",
+    results: [
+      "70% Faster Procurement Cycle",
+      "Significantly Reduced Manual Effort",
+      "120+ Vendors Onboarded in First Quarter",
+    ],
+    pageUrl: "#",
     bg: "#ffffff",
   },
   {
     image: "/assets/bizzstudio.jpeg",
     link: "https://bizzstudio.co",
     tech: ["React", "FastAPI", "Redis"],
-
+    category: "Business Intelligence",
     title: "Bizz Studio — Operations Dashboard",
-    desc: "Centralized operations intelligence platform with real-time KPI tracking, automated reporting, and multi-branch management tools for a growing creative services business.",
-    outcome: "Consolidated 6 spreadsheet tools into a single platform",
+    challenge: "Fragmented reporting spread across multiple operational teams with no single source of truth for business performance.",
+    solution: "Centralized business intelligence dashboard with KPI tracking, automated reporting, and team-level access controls.",
+    results: [
+      "Real-Time Reporting Across All Departments",
+      "Significantly Improved Decision-Making Speed",
+      "Single Source of Truth for All Metrics",
+    ],
+    pageUrl: "#",
     bg: "#000000",
   },
   {
     image: "/assets/platter_pos.jpg",
     link: "https://www.platterpos.com",
     tech: ["React Native", "Firebase"],
+    category: "POS · Hospitality",
     title: "Platter — Restaurant POS & Ordering",
-    desc: "End-to-end point-of-sale and digital ordering system with kitchen display integration, table management, and analytics reporting.",
-    outcome: "Deployed across 14 locations with 99.9% uptime",
+    challenge: "Restaurants relying on outdated or fragmented POS systems with no unified view of orders, tables, and kitchen flow.",
+    solution: "End-to-end point-of-sale and digital ordering system with kitchen display integration, table management, and analytics.",
+    results: [
+      "Deployed Across 14 Locations",
+      "99.9% Uptime Across All Installations",
+      "Unified Orders, Tables & Kitchen in One View",
+    ],
+    pageUrl: "#",
     bg: "#ffffff",
   },
 ];
 
 function calculateGap(width) {
-  if (width < 600) return width * 0.15; // smaller gap on mobile to prevent overflow
-  const minWidth = 1024;
-  const maxWidth = 1456;
-  const minGap = 60;
-  const maxGap = 86;
+  if (width < 600) return width * 0.15;
+  const minWidth = 1024, maxWidth = 1456, minGap = 60, maxGap = 86;
   if (width <= minWidth) return minGap;
-  if (width >= maxWidth)
-    return Math.max(minGap, maxGap + 0.06018 * (width - maxWidth));
-  return (
-    minGap + (maxGap - minGap) * ((width - minWidth) / (maxWidth - minWidth))
-  );
+  if (width >= maxWidth) return Math.max(minGap, maxGap + 0.06018 * (width - maxWidth));
+  return minGap + (maxGap - minGap) * ((width - minWidth) / (maxWidth - minWidth));
 }
 
 export default function Projects() {
@@ -68,7 +74,6 @@ export default function Projects() {
   const projectsLength = useMemo(() => PROJECTS.length, []);
   const activeProject = useMemo(() => PROJECTS[activeIndex], [activeIndex]);
 
-  // Responsive gap calculation
   useEffect(() => {
     function handleResize() {
       if (imageContainerRef.current) {
@@ -80,18 +85,15 @@ export default function Projects() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Autoplay
   useEffect(() => {
     autoplayIntervalRef.current = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % projectsLength);
     }, 5000);
     return () => {
-      if (autoplayIntervalRef.current)
-        clearInterval(autoplayIntervalRef.current);
+      if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
     };
   }, [projectsLength]);
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKey = (e) => {
       if (e.key === "ArrowLeft") handlePrev();
@@ -101,7 +103,6 @@ export default function Projects() {
     return () => window.removeEventListener("keydown", handleKey);
   }, [activeIndex, projectsLength]);
 
-  // Navigation handlers
   const handleNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % projectsLength);
     if (autoplayIntervalRef.current) clearInterval(autoplayIntervalRef.current);
@@ -115,49 +116,28 @@ export default function Projects() {
   function getImageStyle(index) {
     const gap = calculateGap(containerWidth);
     const maxStickUp = gap * 0.8;
-    const offset = (index - activeIndex + projectsLength) % projectsLength;
     const isActive = index === activeIndex;
-    const isLeft =
-      (activeIndex - 1 + projectsLength) % projectsLength === index;
+    const isLeft = (activeIndex - 1 + projectsLength) % projectsLength === index;
     const isRight = (activeIndex + 1) % projectsLength === index;
 
-    if (isActive) {
-      return {
-        zIndex: 3,
-        opacity: 1,
-        pointerEvents: "auto",
-        transform: `translateX(0px) translateY(0px) scale(1) rotateY(0deg)`,
-        transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
-      };
-    }
-    if (isLeft) {
-      return {
-        zIndex: 2,
-        opacity: 1,
-        pointerEvents: "auto",
-        transform: `translateX(-${gap}px) translateY(-${maxStickUp}px) scale(0.85) rotateY(15deg)`,
-        transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
-      };
-    }
-    if (isRight) {
-      return {
-        zIndex: 2,
-        opacity: 1,
-        pointerEvents: "auto",
-        transform: `translateX(${gap}px) translateY(-${maxStickUp}px) scale(0.85) rotateY(-15deg)`,
-        transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
-      };
-    }
-    // Hide all other images
-    return {
-      zIndex: 1,
-      opacity: 0,
-      pointerEvents: "none",
+    if (isActive) return {
+      zIndex: 3, opacity: 1, pointerEvents: "auto",
+      transform: `translateX(0px) translateY(0px) scale(1) rotateY(0deg)`,
       transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
     };
+    if (isLeft) return {
+      zIndex: 2, opacity: 1, pointerEvents: "auto",
+      transform: `translateX(-${gap}px) translateY(-${maxStickUp}px) scale(0.85) rotateY(15deg)`,
+      transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
+    };
+    if (isRight) return {
+      zIndex: 2, opacity: 1, pointerEvents: "auto",
+      transform: `translateX(${gap}px) translateY(-${maxStickUp}px) scale(0.85) rotateY(-15deg)`,
+      transition: "all 0.8s cubic-bezier(.4,2,.3,1)",
+    };
+    return { zIndex: 1, opacity: 0, pointerEvents: "none", transition: "all 0.8s cubic-bezier(.4,2,.3,1)" };
   }
 
-  // Framer Motion variants for quote
   const contentVariants = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
@@ -167,58 +147,42 @@ export default function Projects() {
   return (
     <section className="projects" id="projects">
       <div className="projects-section-inner">
+
         <div className="projects-head">
           <div>
             <div className="section-tag">
               <span className="section-tag-line" />
-              <span className="section-tag-label">Featured Projects</span>
+              <span className="section-tag-label">CASE STUDIES</span>
             </div>
             <h2>Delivering impact across industries.</h2>
           </div>
           <p className="projects-sub">
-            A selection of systems and platforms delivered across different
-            business environments.
+            A selection of systems and platforms delivered across different business environments.
           </p>
         </div>
 
-        {/* Interactive Slider Grid */}
         <div className="projects-slider-grid">
-          {/* Visual Panel on Left */}
+
+          {/* ── Left: Image Carousel ── */}
           <div className="projects-visual-container" ref={imageContainerRef}>
             {PROJECTS.map((p, index) => (
               <div
                 key={p.title}
                 className="project-visual-card"
-                style={{
-                  ...getImageStyle(index),
-                  backgroundColor: p.bg || "var(--haiti)",
-                }}
+                style={{ ...getImageStyle(index), backgroundColor: p.bg || "var(--haiti)" }}
               >
                 {p.url ? (
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="project-image-link"
-                  >
-                    <img
-                      src={p.image}
-                      alt={p.title}
-                      className="project-carousel-image"
-                    />
+                  <a href={p.url} target="_blank" rel="noreferrer" className="project-image-link">
+                    <img src={p.image} alt={p.title} className="project-carousel-image" />
                   </a>
                 ) : (
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className="project-carousel-image"
-                  />
+                  <img src={p.image} alt={p.title} className="project-carousel-image" />
                 )}
               </div>
             ))}
           </div>
 
-          {/* Details Panel on Right */}
+          {/* ── Right: Details Panel ── */}
           <div className="project-details-container">
             <AnimatePresence mode="wait">
               <motion.div
@@ -230,89 +194,84 @@ export default function Projects() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="project-details-content"
               >
+                {/* Tech tags */}
                 <div className="project-tag-row">
                   {activeProject.tech.map((t) => (
-                    <span key={t} className="project-tech">
-                      {t}
-                    </span>
+                    <span key={t} className="project-tech">{t}</span>
                   ))}
                 </div>
 
+                {/* Title */}
                 <h3 className="project-title">{activeProject.title}</h3>
 
-                <motion.p className="project-desc">
-                  {activeProject.desc.split(" ").map((word, i) => (
-                    <motion.span
-                      key={i}
-                      initial={{
-                        filter: "blur(10px)",
-                        opacity: 0,
-                        y: 5,
-                      }}
-                      animate={{
-                        filter: "blur(0px)",
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 0.22,
-                        ease: "easeInOut",
-                        delay: 0.012 * i,
-                      }}
-                      style={{ display: "inline-block" }}
-                    >
-                      {word}&nbsp;
-                    </motion.span>
-                  ))}
-                </motion.p>
-
-                <div className="project-outcome">
-                  <span className="outcome-arrow">↗</span>
-                  <span className="outcome-text">{activeProject.outcome}</span>
+                {/* The Challenge */}
+                <div className="project-block">
+                  <p className="project-block-label">The Challenge</p>
+                  <p className="project-block-text">{activeProject.challenge}</p>
                 </div>
+
+                <div className="project-divider" />
+
+                {/* Our Solution */}
+                <div className="project-block">
+                  <p className="project-block-label">Our Solution</p>
+                  <p className="project-block-text">{activeProject.solution}</p>
+                </div>
+
+                <div className="project-divider" />
+
+                {/* Results Delivered */}
+                <div className="project-block">
+                  <p className="project-block-label">Results Delivered</p>
+                  <ul className="project-results">
+                    {activeProject.results.map((r) => (
+                      <li key={r} className="project-result-item">
+                        <span className="result-check">✓</span>
+                        <span>{r}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="project-divider" />
+
+                {/* Case study link */}
                 <div className="project-read-more">
                   <a href={activeProject.pageUrl} className="read-more-link">
                     Read Full Case Study →
                   </a>
                 </div>
+
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation buttons */}
+            {/* Navigation arrows */}
             <div className="arrow-buttons">
               <button
                 className="arrow-button prev-button"
                 onClick={handlePrev}
-                style={{
-                  backgroundColor: hoverPrev ? "var(--blue)" : "var(--white)",
-                }}
+                style={{ backgroundColor: hoverPrev ? "var(--blue)" : "var(--white)" }}
                 onMouseEnter={() => setHoverPrev(true)}
                 onMouseLeave={() => setHoverPrev(false)}
                 aria-label="Previous project"
               >
-                <FaArrowLeft
-                  size={16}
-                  color={hoverPrev ? "var(--white)" : "var(--blue)"}
-                />
+                <FaArrowLeft size={16} color={hoverPrev ? "var(--white)" : "var(--blue)"} />
               </button>
               <button
                 className="arrow-button next-button"
                 onClick={handleNext}
-                style={{
-                  backgroundColor: hoverNext ? "var(--blue)" : "var(--white)",
-                }}
+                style={{ backgroundColor: hoverNext ? "var(--blue)" : "var(--white)" }}
                 onMouseEnter={() => setHoverNext(true)}
                 onMouseLeave={() => setHoverNext(false)}
                 aria-label="Next project"
               >
-                <FaArrowRight
-                  size={16}
-                  color={hoverNext ? "var(--white)" : "var(--blue)"}
-                />
+                <FaArrowRight size={16} color={hoverNext ? "var(--white)" : "var(--blue)"} />
               </button>
             </div>
+
           </div>
         </div>
+
       </div>
     </section>
   );

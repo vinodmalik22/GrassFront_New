@@ -18,9 +18,11 @@ export default function About() {
             <span className="section-tag-label">About GrassFRONT</span>
           </div>
 
-          <h2>We Help Businesses <br /><span className="accent">Digitize, Automate & Scale.</span></h2>
+          <h2>Technology Built Around Business Outcomes</h2>
 
-          <p>At GrassFRONT, we build custom software, ERP systems, AI-powered workflows, and business automation solutions that help companies reduce operational costs and make better decisions using data.</p>
+          <p>GrassFRONT helps organizations simplify operations through custom software, ERP systems, AI automation, and business intelligence solutions.
+
+          We focus on reducing manual work, improving efficiency, and helping businesses make better decisions with data.</p>
 
           <div className="trust-points">
             {TRUST_POINTS.map(tp => (

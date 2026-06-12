@@ -1,7 +1,7 @@
 /* ─── Capabilities Section ─────────────────────────────────────── */
 
 .capabilities {
-  background: var(--white-lilac);
+  background: var(--white);
   border-top: 0.8px solid var(--blue-12);
   padding: 80px 0;
 }
@@ -15,26 +15,6 @@
   gap: 19.2px;
 }
 
-.section-tag {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.section-tag-line {
-  width: 26px;
-  height: 1.5px;
-  background: #1F00FF;
-  flex-shrink: 0;
-}
-
-.section-tag-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #1F00FF;
-}
 
 .cap-frame {
   display: flex;
@@ -45,7 +25,7 @@
 .capabilities h2 {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 54px;
+  font-size: 50px;
   line-height: 64px;
   letter-spacing: -1.008px;
   color: var(--vulcan);
@@ -66,17 +46,15 @@
   background: var(--white);
   border: 1px solid var(--fog);
   border-radius: 12px;
-  padding: 22px 22px;
+  padding: 26px 22px;
   display: flex;
   flex-direction: column;
-  cursor: pointer;
+  gap: 14px;
   animation: capCardIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
   animation-delay: var(--delay, 0s);
   transition:
     box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1),
     border-color 0.3s ease;
-  user-select: none;
-  outline: none;
 }
 
 .cap-card:hover {
@@ -84,31 +62,7 @@
   border-color: rgba(31, 0, 255, 0.18);
 }
 
-.cap-card:focus-visible {
-  box-shadow: 0 0 0 3px rgba(31, 0, 255, 0.2);
-}
-
-.cap-card--open {
-  border-color: rgba(31, 0, 255, 0.28);
-  box-shadow: 0 12px 36px rgba(31, 0, 255, 0.08);
-}
-
-/* ─── Header row (always visible) ───────────────────────────────── */
-
-.cap-card-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.cap-card-icon-wrap {
-  flex-shrink: 0;
-}
-
-.cap-card-meta {
-  flex: 1;
-  min-width: 0;
-}
+/* ─── Card title ─────────────────────────────────────────────────── */
 
 .cap-card h3 {
   font-family: 'Space Grotesk', sans-serif;
@@ -121,52 +75,22 @@
   transition: color 0.3s ease;
 }
 
-.cap-card:hover h3,
-.cap-card--open h3 {
+.cap-card:hover h3 {
   color: #1F00FF;
 }
 
-.cap-card-arrow {
+/* ─── Divider line ───────────────────────────────────────────────── */
+
+.cap-card-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--fog);
   flex-shrink: 0;
-  width: 26px;
-  height: 26px;
-  border: 1px solid var(--fog);
-  border-radius: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: border-color 0.3s ease, background 0.3s ease;
+  transition: background 0.3s ease;
 }
 
-.cap-card:hover .cap-card-arrow,
-.cap-card--open .cap-card-arrow {
-  border-color: rgba(31, 0, 255, 0.25);
-  background: rgba(31, 0, 255, 0.04);
-}
-
-/* ─── Expand panel ───────────────────────────────────────────────── */
-
-.cap-expand {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.cap-expand--visible {
-  grid-template-rows: 1fr;
-}
-
-.cap-expand-inner {
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding-top: 0;
-  transition: padding-top 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.cap-expand--visible .cap-expand-inner {
-  padding-top: 16px;
+.cap-card:hover .cap-card-divider {
+  background: rgba(31, 0, 255, 0.15);
 }
 
 /* ─── Description ────────────────────────────────────────────────── */
@@ -178,6 +102,7 @@
   line-height: 21px;
   color: var(--charade);
   margin: 0;
+  flex: 1;
 }
 
 /* ─── Tags ───────────────────────────────────────────────────────── */
@@ -199,6 +124,29 @@
   text-transform: uppercase;
   color: #1F00FF;
   background: rgba(31, 0, 255, 0.04);
+}
+
+/* ─── Learn More CTA ─────────────────────────────────────────────── */
+
+.cap-learn {
+  margin-top: 4px;
+}
+
+.learn-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1F00FF;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s ease, opacity 0.2s ease;
+}
+
+.learn-link:hover {
+  gap: 8px;
+  opacity: 0.8;
 }
 
 /* ─── Animation ──────────────────────────────────────────────────── */
@@ -225,8 +173,7 @@
   .cap-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
   .cap-card:hover { box-shadow: none; border-color: var(--fog); }
   .cap-card:hover h3 { color: var(--vulcan); }
-  .cap-card--open:hover { border-color: rgba(31,0,255,0.28); box-shadow: 0 12px 36px rgba(31,0,255,0.08); }
-  .cap-card--open h3 { color: #1F00FF; }
+  .cap-card:hover .cap-card-divider { background: var(--fog); }
 }
 
 /* ─── Mobile (≤768px) ──────────────────────────────────────────────── */
