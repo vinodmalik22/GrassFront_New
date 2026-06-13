@@ -27,10 +27,20 @@
   color: var(--white);
   margin-bottom: 16px;
   display: inline-block;
+<<<<<<< HEAD
 }
 
 .footer-logo span {
   color: var(--blue);
+}
+
+.footer-logo-image {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+=======
+>>>>>>> b31d7fdfb7a81c5059fbbb08237b5726161dd601
 }
 
 .footer-logo-image {
