@@ -4,6 +4,7 @@ import Trusted from '../components/sections/Trusted';
 import About from '../components/sections/About';
 import Process from '../components/sections/Process';
 import Capabilities from '../components/sections/Capabilities';
+import Industries from '../components/sections/Industries';
 import Projects from '../components/sections/Projects';
 import Testimonials from '../components/sections/Testimonials';
 import Stats from '../components/sections/Stats';
@@ -47,6 +48,7 @@ export default function Home() {
       <About />
       <Process />
       <Capabilities />
+      <Industries />
       <Projects />
       <Testimonials />
       <Stats />
