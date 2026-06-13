@@ -1,0 +1,430 @@
+/* =====================================================
+   AIAutomationPage.css
+   Page-specific styles layered on top of ServicePage.css
+   Uses original dark-theme CSS variable set
+   ===================================================== */
+
+/* ─── Hero flow visual ─────────────────────────────────────────── */
+.ai-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.ai-flow__row {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-flow__step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--fog);
+  background: var(--white-lilac);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.ai-flow__step--done {
+  background: rgba(16, 185, 129, 0.05);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.ai-flow__step--active {
+  background: rgba(31, 0, 255, 0.04);
+  border-color: rgba(31, 0, 255, 0.2);
+}
+
+.ai-flow__step--pending {
+  opacity: 0.55;
+}
+
+.ai-flow__icon {
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.ai-flow__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12.5px;
+  color: var(--vulcan);
+  flex: 1;
+}
+
+.ai-flow__badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai-flow__step--done .ai-flow__badge {
+  background: rgba(16, 185, 129, 0.12);
+  color: #10B981;
+}
+
+.ai-flow__step--active .ai-flow__badge {
+  background: rgba(31, 0, 255, 0.08);
+  color: var(--blue);
+  animation: aiBadgeSpin 1.5s linear infinite;
+}
+
+.ai-flow__step--pending .ai-flow__badge {
+  background: var(--fog);
+  color: var(--storm-gray);
+}
+
+@keyframes aiBadgeSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.ai-flow__connector {
+  width: 1px;
+  height: 10px;
+  background: var(--fog);
+  margin-left: 22px;
+}
+
+/* ─── What is AI Automation — explainer ─────────────────────────── */
+.ai-explainer .sp-inner {
+  gap: 0;
+}
+
+.ai-explainer__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+
+.ai-explainer__left {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.ai-explainer__left h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 54px;
+  letter-spacing: -0.9px;
+  color: var(--vulcan);
+  margin: 0;
+}
+
+.ai-explainer__left p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: var(--storm-gray);
+  margin: 0;
+}
+
+.ai-explainer__right {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: var(--white);
+  border: 1px solid var(--fog);
+  border-radius: 14px;
+  padding: 28px 24px;
+}
+
+.ai-explainer__right h4 {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--storm-gray);
+  margin: 0;
+}
+
+.ai-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ai-example-pill {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--blue);
+  background: rgba(31, 0, 255, 0.05);
+  border: 1px solid rgba(31, 0, 255, 0.15);
+  padding: 7px 14px;
+  border-radius: 100px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ai-example-pill:hover {
+  background: rgba(31, 0, 255, 0.09);
+  box-shadow: 0 2px 8px rgba(31, 0, 255, 0.1);
+}
+
+/* ─── Signs list ────────────────────────────────────────────────── */
+.ai-signs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--fog);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.ai-sign-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 24px;
+  border-bottom: 1px solid var(--fog);
+  background: var(--white);
+  transition: background 0.22s ease;
+}
+
+.ai-sign-item:last-child {
+  border-bottom: none;
+}
+
+.ai-sign-item:hover {
+  background: var(--selago);
+}
+
+.ai-sign-icon {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  background: var(--selago);
+  border: 1px solid var(--fog);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  transition: background 0.22s ease, border-color 0.22s ease;
+}
+
+.ai-sign-item:hover .ai-sign-icon {
+  background: var(--fog);
+  border-color: rgba(31, 0, 255, 0.2);
+}
+
+.ai-sign-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ai-sign-body h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: -0.2px;
+  color: var(--vulcan);
+  margin: 0;
+  transition: color 0.22s ease;
+}
+
+.ai-sign-item:hover .ai-sign-body h3 {
+  color: var(--blue);
+}
+
+.ai-sign-body p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  line-height: 21px;
+  color: var(--charade);
+  margin: 0;
+}
+
+.ai-sign-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--fog);
+  letter-spacing: -1px;
+  flex-shrink: 0;
+  line-height: 1;
+  transition: color 0.22s ease;
+}
+
+.ai-sign-item:hover .ai-sign-num {
+  color: rgba(31, 0, 255, 0.12);
+}
+
+/* ─── Use cases tabs ────────────────────────────────────────────── */
+.ai-cases {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--fog);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.ai-cases__tabs {
+  display: flex;
+  border-bottom: 1px solid var(--fog);
+  background: var(--white-lilac);
+}
+
+.ai-cases__tab {
+  flex: 1;
+  padding: 14px 20px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--storm-gray);
+  background: transparent;
+  border: none;
+  border-right: 1px solid var(--fog);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  letter-spacing: -0.1px;
+}
+
+.ai-cases__tab:last-child {
+  border-right: none;
+}
+
+.ai-cases__tab:hover {
+  background: var(--selago);
+  color: var(--vulcan);
+}
+
+.ai-cases__tab--active {
+  background: var(--white);
+  color: var(--blue);
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 var(--blue);
+}
+
+.ai-cases__panel {
+  background: var(--white);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ai-cases__tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--blue);
+  background: rgba(31, 0, 255, 0.05);
+  border: 1px solid rgba(31, 0, 255, 0.15);
+  padding: 3px 10px;
+  border-radius: 3px;
+  width: fit-content;
+}
+
+.ai-cases__body {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 32px;
+  align-items: center;
+}
+
+.ai-case-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ai-case-block {
+  padding: 16px 18px;
+  border-radius: 10px;
+  border-left: 3px solid transparent;
+  background: var(--white-lilac);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ai-case-block--challenge { border-left-color: var(--fog); }
+.ai-case-block--solution  { border-left-color: rgba(31, 0, 255, 0.4); }
+.ai-case-block--result    { border-left-color: #10B981; }
+
+.ai-case-block__label {
+  font-family: 'DM Mono', monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--storm-gray);
+}
+
+.ai-case-block p {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13.5px;
+  line-height: 21px;
+  color: var(--charade);
+  margin: 0;
+}
+
+.ai-case-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(31, 0, 255, 0.04);
+  border: 1px solid rgba(31, 0, 255, 0.12);
+  border-radius: 12px;
+  padding: 32px 20px;
+  text-align: center;
+}
+
+.ai-case-metric__num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--blue);
+  letter-spacing: -1.5px;
+  line-height: 1;
+}
+
+.ai-case-metric__label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: var(--storm-gray);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────── */
+@media (max-width: 1180px) {
+  .ai-explainer__left h2 { font-size: 36px; line-height: 46px; }
+  .ai-explainer__grid { gap: 48px; }
+}
+
+@media (max-width: 900px) {
+  .ai-explainer__grid { grid-template-columns: 1fr; gap: 28px; }
+  .ai-explainer__left h2 { font-size: 32px; line-height: 42px; }
+  .ai-cases__body { grid-template-columns: 1fr; }
+  .ai-case-metric { flex-direction: row; justify-content: flex-start; gap: 16px; padding: 18px 20px; }
+  .ai-case-metric__num { font-size: 2rem; }
+  .ai-sign-num { display: none; }
+}
+
+@media (max-width: 768px) {
+  .ai-explainer__left h2 { font-size: 26px; line-height: 34px; }
+  .ai-cases__tabs { flex-direction: column; }
+  .ai-cases__tab { border-right: none; border-bottom: 1px solid var(--fog); text-align: left; }
+  .ai-cases__tab:last-child { border-bottom: none; }
+  .ai-cases__tab--active { box-shadow: inset 3px 0 0 var(--blue); }
+  .ai-cases__panel { padding: 22px 18px; }
+  .ai-sign-item { padding: 16px 18px; gap: 14px; }
+}

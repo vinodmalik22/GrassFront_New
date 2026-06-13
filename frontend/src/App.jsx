@@ -1,16 +1,24 @@
 import './index.css';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
-
-// Shared section-tag styles (used across multiple sections)
+import ERPPage from './pages/ERPPage';
+import CustomSoftwarePage from './pages/CustomSoftwarePage';
+import AIAutomationPage from './pages/AIAutomationPage';
 import './shared.css';
 
 export default function App() {
   return (
     <>
       <Navbar />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/erp" element={<ERPPage />} />
+        <Route path="/custom-software" element={<CustomSoftwarePage />} />
+        <Route path="/ai-automation" element={<AIAutomationPage />} />
+        <Route path="*" element={<Home />} />
+      </Routes>
       <Footer />
     </>
   );

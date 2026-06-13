@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Hero from '../components/sections/Hero';
-import Trusted from '../components/sections/Trusted';
 import About from '../components/sections/About';
 import Process from '../components/sections/Process';
 import Capabilities from '../components/sections/Capabilities';
@@ -10,6 +9,11 @@ import Testimonials from '../components/sections/Testimonials';
 import Stats from '../components/sections/Stats';
 import Media from '../components/sections/Media';
 import Contact from '../components/sections/Contact';
+import Trusted from '../components/sections/Trusted';
+import Problems from '../components/sections/Problems';
+import CaseStudies from '../components/sections/CaseStudies';
+import Why from '../components/sections/Why';
+import FAQ from '../components/sections/FAQ';
 
 export default function Home() {
   // Initialize scroll reveal
@@ -45,13 +49,17 @@ export default function Home() {
     <main>
       <Hero />
       <Trusted />
+      <Problems />
       <About />
       <Process />
       <Capabilities />
       <Industries />
       <Projects />
+      <CaseStudies />
       <Testimonials />
+      <Why />
       <Stats />
+      <FAQ />
       <Media />
       <Contact />
     </main>

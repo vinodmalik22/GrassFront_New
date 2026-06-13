@@ -1,6 +1,6 @@
 .hero {
   position: relative;
-  min-height: 780px;
+  min-height: 760px;
   display: flex;
   align-items: flex-start;
   padding: 25px 0 0 0;
@@ -43,7 +43,7 @@
 .hero-left {
   position: absolute;
   left: 48px;
-  right: 600px;
+  right: 620px;
   top: 64px;
   display: flex;
   flex-direction: column;
@@ -83,9 +83,9 @@
 .hero-heading {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
-  font-size: 48px;
-  line-height: 62px;
-  letter-spacing: -1.2px;
+  font-size: 54px;
+  line-height: 64px;
+  letter-spacing: -1.008px;
   color: var(--haiti);
   margin-top: 28px;
 }
@@ -121,8 +121,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 32px;
-  background: var(--white);
+  padding: 13.8px 31.8px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 4px;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -130,13 +130,13 @@
   letter-spacing: 0.56px;
   text-transform: uppercase;
   color: var(--vulcan);
-  transition: background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
+  transition: border-color 0.22s ease, background 0.22s ease, transform 0.18s ease, box-shadow 0.22s ease;
   white-space: nowrap;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
 }
 
 .btn-primary:hover {
-  background: var(--white-lilac);
+  background: var(--blue);
+  color: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
 }
@@ -164,7 +164,8 @@
 
 .btn-outline:hover {
   border-color: var(--vulcan);
-  background: rgba(0, 0, 0, 0.03);
+  background: var(--blue);
+  color: var(--white);
   transform: translateY(-2px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
@@ -263,7 +264,23 @@
   }
 }
 
-/* ---- MOBILE ---- */
+/* ─── Tablet landscape (≤1180px) ──────────────────────────────────── */
+@media (max-width: 1180px) {
+  .hero-heading {
+    font-size: 44px;
+    line-height: 54px;
+  }
+}
+
+/* ─── Tablet portrait (≤900px) ────────────────────────────────────── */
+@media (max-width: 900px) {
+  .hero-heading {
+    font-size: 38px;
+    line-height: 48px;
+  }
+}
+
+/* ─── Mobile (≤768px) ──────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .hero {
     min-height: auto;
@@ -278,8 +295,8 @@
   }
 
   .hero-heading {
-    font-size: 42px;
-    line-height: 46px;
+    font-size: 28px;
+    line-height: 36px;
     margin-top: 32px;
   }
 
@@ -305,5 +322,13 @@
 
   .hero-right {
     display: none;
+  }
+}
+
+/* ─── Very small (≤380px) ──────────────────────────────────────────── */
+@media (max-width: 380px) {
+  .hero-heading {
+    font-size: 24px;
+    line-height: 32px;
   }
 }
