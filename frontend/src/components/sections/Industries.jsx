@@ -6,6 +6,7 @@ const INDUSTRIES = [
     title: 'Hospitality & Restaurants',
     icon: <img src="/assets/ind-coffee.png" alt="Hospitality 3D Icon" className="ind-3d-icon" />,
     items: ['ERP', 'Procurement', 'Inventory', 'POS Integrations'],
+    link: '/hospitality-restaurants'
   },
   {
     title: 'Manufacturing',
@@ -42,24 +43,41 @@ export default function Industries() {
         </div>
 
         <div className="industries-grid">
-          {INDUSTRIES.map((ind, i) => (
-            <div
-              key={ind.title}
-              className="industry-card reveal"
-              style={{ transitionDelay: `${0.2 + i * 0.1}s` }}
-            >
-              <div className="industry-icon">{ind.icon}</div>
-              <h3 className="industry-title">{ind.title}</h3>
-              <ul className="industry-list">
-                {ind.items.map((item) => (
-                  <li key={item}>
-                    <span className="industry-list-dot"></span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {INDUSTRIES.map((ind, i) => {
+            const cardContent = (
+              <>
+                <div className="industry-icon">{ind.icon}</div>
+                <h3 className="industry-title">{ind.title}</h3>
+                <ul className="industry-list">
+                  {ind.items.map((item) => (
+                    <li key={item}>
+                      <span className="industry-list-dot"></span>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            );
+
+            return ind.link ? (
+              <a
+                href={ind.link}
+                key={ind.title}
+                className="industry-card reveal"
+                style={{ transitionDelay: `${0.2 + i * 0.1}s`, textDecoration: 'none', color: 'inherit' }}
+              >
+                {cardContent}
+              </a>
+            ) : (
+              <div
+                key={ind.title}
+                className="industry-card reveal"
+                style={{ transitionDelay: `${0.2 + i * 0.1}s` }}
+              >
+                {cardContent}
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

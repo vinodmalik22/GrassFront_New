@@ -17,7 +17,7 @@ const NAV_LINKS = [
   },
   {
     label: 'Industries', href: '#industries', dropdown: [
-      { label: 'Hospitality & Restaurants', href: '#hospitality' },
+      { label: 'Hospitality & Restaurants', href: '/hospitality-restaurants' },
       { label: 'Manufacturing', href: '#manufacturing' },
       { label: 'Retail', href: '#retail' },
       { label: 'Distribution & Logistics', href: '#logistics' },

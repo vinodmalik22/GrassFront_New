@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import ERPPage from './pages/ERPPage';
 import CustomSoftwarePage from './pages/CustomSoftwarePage';
 import AIAutomationPage from './pages/AIAutomationPage';
+import HospitalityRestaurantsPage from './pages/HospitalityRestaurantsPage';
 import './shared.css';
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/erp" element={<ERPPage />} />
         <Route path="/custom-software" element={<CustomSoftwarePage />} />
         <Route path="/ai-automation" element={<AIAutomationPage />} />
+        <Route path="/hospitality-restaurants" element={<HospitalityRestaurantsPage />} />
         <Route path="*" element={<Home />} />
       </Routes>
       <Footer />
