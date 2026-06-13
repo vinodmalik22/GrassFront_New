@@ -2,32 +2,32 @@ import './Why.css';
 
 const REASONS = [
   {
-    icon: '🎯',
+    icon: '/assets/why-target.png',
     title: 'Business-First Approach',
     desc: 'We start with your operations, not with code. Every decision is rooted in how your business actually works.',
   },
   {
-    icon: '🔧',
+    icon: '/assets/why-wrench.png',
     title: 'Custom-Built Solutions',
     desc: 'No templates, no off-the-shelf compromises. Every system is architected specifically for your requirements.',
   },
   {
-    icon: '🤝',
+    icon: '/assets/why-handshake.png',
     title: 'Dedicated Project Ownership',
     desc: 'A single accountable team owns your project from discovery to delivery — no handoffs, no gaps.',
   },
   {
-    icon: '⚡',
+    icon: '/assets/why-lightning.png',
     title: 'Agile Delivery Process',
     desc: 'Iterative sprints with regular check-ins keep you in control and ensure progress is always visible.',
   },
   {
-    icon: '🛡',
+    icon: '/assets/why-shield.png',
     title: 'Long-Term Support',
     desc: 'We stay with you post-launch — monitoring, maintaining, and evolving your systems as your business grows.',
   },
   {
-    icon: '💬',
+    icon: '/assets/why-chat.png',
     title: 'Transparent Communication',
     desc: 'Clear timelines, honest updates, and no surprises. You always know exactly where your project stands.',
   },
@@ -54,7 +54,9 @@ export default function Why() {
           <div className="why-grid">
             {REASONS.map((r, i) => (
               <div className="why-card" key={i} style={{ '--delay': `${i * 0.07}s` }}>
-                <div className="why-card-icon">{r.icon}</div>
+                <div className="why-card-icon">
+                  <img src={r.icon} alt={r.title} />
+                </div>
                 <div className="why-card-body">
                   <div className="why-card-title-row">
                     <span className="why-card-check">✓</span>

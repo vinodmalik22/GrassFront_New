@@ -11,7 +11,6 @@ import Media from '../components/sections/Media';
 import Contact from '../components/sections/Contact';
 import Trusted from '../components/sections/Trusted';
 import Problems from '../components/sections/Problems';
-import CaseStudies from '../components/sections/CaseStudies';
 import Why from '../components/sections/Why';
 import FAQ from '../components/sections/FAQ';
 
@@ -55,7 +54,6 @@ export default function Home() {
       <Capabilities />
       <Industries />
       <Projects />
-      <CaseStudies />
       <Testimonials />
       <Why />
       <Stats />
